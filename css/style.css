@@ -1,3 +1,16 @@
 body {
     font-family: 'Quicksand', sans-serif;
 }
+
+.cards {
+    background-color: rgb(83, 206, 138);
+    border-radius: 1rem;
+    border-color: white;
+    border-width: .2rem;
+    border-style: solid;
+}
+
+.cards-input {
+    width: 6rem;
+    margin-right: 1rem;
+}
