@@ -1,16 +1,125 @@
-body {
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
 }
 
-.cards {
-    background-color: rgb(83, 206, 138);
-    border-radius: 1rem;
-    border-color: white;
-    border-width: .2rem;
-    border-style: solid;
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 3.7rem;
+    background-color: rgb(252, 132, 53);
 }
 
-.cards-input {
-    width: 6rem;
-    margin-right: 1rem;
+.logo {
+    color: rgb(247, 247, 247);
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 17%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+}
+
+.toggler {
+    display: none;
+}
+
+.toggler div {
+    width: 22px;
+    height: 2px;
+    background-color: rgb(247, 247, 247);
+    margin: 5px;
+}
+
+@media (max-width: 576px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        justify-content: space-between;
+        padding: 0 2rem 0;
+    }
+
+    .toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        background-color: rgb(185, 129, 91);
+
+        position: absolute;
+        left: 0px;
+        height: 0rem;
+        width: 100%;
+        top: 3.7rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        transform: translateY(20);
+        transition: 0.2s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .nav-links li a:hover {
+        color: rgb(241, 181, 141);
+    }
+
+    .nav-active {
+        height: 20rem;
+        padding: 1.3rem 0 1.3rem;
+        transition: 0.3s ease-in;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .nav-links {
+        width: 35%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .nav-links {
+        width: 30%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .nav-links {
+        width: 23%;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(20rem)
+    } to {
+        opacity: 1;
+        transform: translateX(1rem);
+    }
 }
