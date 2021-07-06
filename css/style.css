@@ -15,6 +15,7 @@ h2 {
 }
 
 p {
+    font-size: .95rem; 
     margin: .5rem 0 1rem;
 }
 
@@ -34,7 +35,7 @@ nav {
     background-color: rgb(252, 132, 53);
 }
 
-.logo a {
+.logo a, .logo h4 {
     color: rgb(247, 247, 247);
     text-transform: uppercase;
     text-decoration: none;
@@ -108,6 +109,37 @@ nav {
     justify-content: center;
 }
 
+/* footer */
+#footer-content, footer {
+    color: rgb(247, 247, 247);
+}
+
+footer li, footer a {
+    list-style: none;
+    color: rgb(247, 247, 247);
+    margin-top: .5rem;
+    font-weight: 400;
+    text-decoration-line: none;
+}
+
+#footer-grid-1 {
+    width: 40%;
+}
+#footer-grid-2 {
+    width: 20%;
+}
+#footer-grid-3 {
+    width: 20%;
+}
+#footer-grid-4 {
+    width: 20%;
+}
+
+#footer-grid-2, #footer-grid-3, #footer-grid-4 {
+    padding-top: .2rem; 
+    text-align: right;
+}
+
 @media (max-width: 576px) {
     body {
         overflow-x: hidden;
@@ -173,6 +205,19 @@ nav {
     #welcome-grid-right {
         display: none; 
     }
+
+    /* footer */
+    #footer-grid-1 {
+        width: 100%;
+        text-align: center;
+    }
+    #footer-grid-2 {
+        width: 0%;
+    }
+    #footer-grid-3, #footer-grid-4 {
+        display: none;
+        width: 25%;
+    }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -203,6 +248,17 @@ nav {
     #welcome-grid-right {
         display: none; 
     }
+
+    /* footer */
+    #footer-grid-1 {
+        width: 50%;
+    }
+    #footer-grid-2 {
+        width: 0%;
+    }
+    #footer-grid-3, #footer-grid-4 {
+        width: 25%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -218,6 +274,17 @@ nav {
 
     .main-content {
         width: 100%;
+    }
+
+    /* footer */
+    #footer-grid-1 {
+        width: 45%;
+    }
+    #footer-grid-2 {
+        width: 15%;
+    }
+    #footer-grid-3, #footer-grid-4 {
+        width: 20%;
     }
 }
 
