@@ -35,16 +35,55 @@
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
-
     </nav>
+
+    <div class="web-content" style="display: flex;">
+        <div class="side-bar-left"
+            style="background-color: rgb(241, 241, 241); width: 18%; display: flex; justify-content: center; padding: 3rem 0 3rem;">
+            <div class="ads" style="background-color: rgb(148, 194, 179); width: 80%; text-align: center;">dummy ad
+            </div>
+        </div>
+        <div class="main-content" style="background-color: rgb(255, 255, 255); padding: 2rem; width: 64%;">
+            <section class="msg-welcome" style="padding: 2rem 1rem 2rem;">
+                <div style="display: flex;">
+                    <div style="width: 60%;">
+                        <h1 style="font-weight: 500;">Welcome to ZwiftPlan!</h1>
+                        <p style="margin: .5rem 0 1rem;">Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Alias corporis numquam voluptatem itaque esse accusantium, doloremque, illo culpa
+                            iusto odit veniam voluptatum qui hic placeat totam consequuntur similique. Obcaecati,
+                            assumenda!</p>
+                        <button id="closeWelcomeMsg" style="background-color: rgb(252, 132, 53); color: white; width: 8rem; height: 1.3rem; border: none;">Close</button>
+                    </div>
+                    <div style="width: 40%; display: flex;">
+                        <div class="welcome-img" style="align-self: center; padding-left: 1rem;">
+                            <img src="../asset/cycling.gif" alt="welcome-img" style="max-width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="break-line"
+                    style="height: .8px; width: 100%; margin-top: 2.5rem; background-color: rgb(194, 194, 194);"></div>
+            </section>
+
+            <section class="user-basic-info">
+                
+            </section>
+        </div>
+        <div class="side-bar-right"
+            style="background-color: rgb(241, 241, 241); width: 18%; display: flex; justify-content: center; padding: 3rem 0 3rem;">
+            <div class="ads" style="background-color: rgb(148, 194, 179); width: 80%; text-align: center;">dummy ad
+            </div>
+        </div>
+    </div>
+
+
     <form id="formMain" action="/action_page.php" onsubmit="download('trainingPlan.txt')">
         ItemA: <input type="text" name="itemA"><br>
         ItemB: <input type="text" name="itemB"><br><br>
         <input type="button" onclick="formFunct()" value="Buttom">
         <input type="button" onclick="createText('trainingPlan.txt')" value="Submit">
-      </form>
+    </form>
 
-      <p id="demo"></p>
+    <p id="demo"></p>
     <!-- bootstrap js
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

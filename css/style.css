@@ -34,6 +34,10 @@ nav {
     text-decoration: none;
 }
 
+.nav-links a:hover {
+    color: rgb(241, 181, 141);
+}
+
 .toggler {
     display: none;
 }
@@ -79,10 +83,6 @@ nav {
 
     .nav-links li {
         opacity: 0;
-    }
-
-    .nav-links li a:hover {
-        color: rgb(241, 181, 141);
     }
 
     .nav-active {

@@ -1,3 +1,4 @@
+// Web Style Function
 const mainNav  =document.querySelector('.main-nav');
 const toggler = document.querySelector('.toggler');
 const nav = document.querySelector('.nav-links');
@@ -25,6 +26,7 @@ visualViewport.addEventListener('resize', function() {
     });
   });
 
+// Plan Tool Function
 var textGlob = "Starter \n";
 var Form,VarA , VarB;
 function createText(filename)
