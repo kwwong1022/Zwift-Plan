@@ -31,11 +31,104 @@ visualViewport.addEventListener('resize', function () {
 const msgWelcome = document.querySelector('#msg-welcome');
 const welcomeBtn = document.querySelector('#close-welcome-msg');
 
-welcomeBtn.addEventListener('click', ()=> {
+welcomeBtn.addEventListener('click', () => {
     msgWelcome.style.display = "none";
 })
 
 // Plan Tool
+const newPlanCard = document.querySelector('#new-plan-card');
+const titleZoneLv = document.querySelector('#title-zone-level');
+const titlePower = document.querySelector('#title-power');
+
+const newPowerPercentage = document.querySelector('#power-percentage');
+const addPowerPercentage = document.querySelector('#power-percentage-add');
+const minusPowerPercentage = document.querySelector('#power-percentage-minus');
+
+const newPowerWatt = document.querySelector('#power-watt');
+const addPowerWatt = document.querySelector('#power-watt-add');
+const minusPowerWatt = document.querySelector('#power-watt-minus');
+
 let userWeight = "75";
 let userFTP = "200";
 
+addPowerPercentage.addEventListener('click', () => {
+    let currPer = parseInt(newPowerPercentage.innerText);
+    currPer += 1;
+    newPowerPercentage.innerText = currPer;
+    updatePower();
+
+    updateAddCardTitle();
+})
+
+minusPowerPercentage.addEventListener('click', () => {
+    let currPer = parseInt(newPowerPercentage.innerText);
+    currPer -= 1;
+    newPowerPercentage.innerText = currPer;
+    updatePower();
+
+    updateAddCardTitle();
+})
+
+addPowerWatt.addEventListener('click', () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    currPow += 5;
+    newPowerWatt.innerText = currPow;
+    updatePercentage();
+
+    updateAddCardTitle();
+})
+
+minusPowerWatt.addEventListener('click', () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    currPow -= 5;
+    newPowerWatt.innerText = currPow;
+    updatePercentage();
+
+    updateAddCardTitle();
+})
+
+let updatePower = () => {
+    let currPer = parseInt(newPowerPercentage.innerText) / 100;
+    let currPow = Math.floor(userFTP * currPer);
+    newPowerWatt.innerText = currPow;
+}
+
+let updatePercentage = () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    let currPer = Math.floor(currPow / userFTP * 100);
+    newPowerPercentage.innerText = currPer;
+}
+
+let updateAddCardTitle = () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    let currZone = "";
+    let currBgColor = "";
+    let currZonePow = currPow / userFTP;
+
+    if (currZonePow < 0.56) {
+        currZone = "1"
+        currBgColor = "rgb(141, 141, 141)";
+    } else if (currZonePow >= 0.56 && currZonePow < 0.76) {
+        currZone = "2"
+        currBgColor = "rgb(56, 173, 219)";
+    } else if (currZonePow >= 0.76 && currZonePow < 0.88) {
+        currZone = "3"
+        currBgColor = "rgb(46, 196, 71)";
+    } else if (currZonePow >= 0.88 && currZonePow < 0.95) {
+        currZone = "4"
+        currBgColor = "rgb(218, 155, 62)";
+    } else if (currZonePow >= 0.95 && currZonePow < 1.05) {
+        currZone = "5"
+        currBgColor = "rgb(194, 218, 61)";
+    } else if (currZonePow >= 1.05 && currZonePow < 1.55) {
+        currZone = "6"
+        currBgColor = "rgb(207, 57, 57)";
+    } else {
+        currZone = "7"
+        currBgColor = "rgb(170, 35, 159)";
+    }
+
+    titleZoneLv.innerText = currZone;
+    titlePower.innerText = newPowerWatt.innerText;
+    newPlanCard.style.backgroundColor = currBgColor;
+}
