@@ -2,9 +2,13 @@
 var textGlob = "Starter \n";
 var Form, VarA, VarB;
 Form = document.getElementById("formMain");
-function moduleQuestionHTML(questionNo){
+//module no = 1 calls green block
+//module no = 0 calls test question
+function moduleQuestionHTML(questionNo, moduleNo){
     var qHTML = document.createElement("a");
-    qHTML.innerHTML = '<div class="d-flex" style="justify-content: center;"><div id="new-plan-card" class="card"style="width: 100%; height: 8rem; padding: .5rem .8rem .5rem;background-color: rgb(46, 196, 71);border-radius: 15px 15px 15px 15px; border: 6px solid white;box-shadow: 0px 2px 13px 0px #888888; color: rgb(247, 247, 247);"><span style="font-size: 1.5rem; font-weight: 500;">Zone <span id="title-zone-level">2</span> - <span id="title-power">200</span>w</span></div><div style="width: 0%;"></div></div>';
+    if (moduleNo = 1) {
+        qHTML.innerHTML = '<div class="d-flex" style="justify-content: center;"><div id="new-plan-card" class="card"style="width: 100%; height: 8rem; padding: .5rem .8rem .5rem;background-color: rgb(46, 196, 71);border-radius: 15px 15px 15px 15px; border: 6px solid white;box-shadow: 0px 2px 13px 0px #888888; color: rgb(247, 247, 247);"><span style="font-size: 1.5rem; font-weight: 500;">Zone <span id="title-zone-level">2</span> - <span id="title-power">200</span>w</span></div><div style="width: 0%;"></div></div>';
+    }
     
     return qHTML;
 }
