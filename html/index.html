@@ -73,12 +73,25 @@
             <!-- New Plan Card -->
             <section id="new-plan-card-session">
                 <div class="d-flex" style="justify-content: center;">
-                    <div id="new-plan-card" class="card">
-                        
-                        <span style="font-size: 1.5rem; font-weight: 500;">Zone 
-                            <span id="title-zone-level">2</span> - 
-                            <span id="title-power">200</span>w
-                        </span>
+                    <div id="new-plan-card" class="card d-flex">
+                        <div class="card-grid-left" style="width: 80%">
+                            <!-- Workout Title -->
+                            <span style="font-size: 1.5rem; font-weight: 500;">ZONE
+                                <span id="title-zone-level">2</span> -
+                                <span id="title-power">200</span>w
+                            </span>
+                            
+                            <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-right: 2rem;">
+                                <span style="font-size: 1.3rem; font-weight: 500;">POWER:</span>
+                                
+                            </div>
+                        </div>
+                        <div class="card-grid-right" style="width: 20%;">
+                            <!-- Add New card Button-->
+                            <button id="add-new-plan" style="display: flex; justify-content: center; 
+                            align-content: center; background-color: white; width: 80px; height: 80px; 
+                            border-radius: 50%; border: none;"></button>
+                        </div>
                     </div>
                     <div style="width: 0%;"></div>
                 </div>
@@ -91,7 +104,7 @@
     </div>
 
     <form id="formMain" action="/action_page.php" onsubmit="download('trainingPlan.txt')">
-        <div id="question1">    
+        <div id="question1">
             <input type="radio" id="itemA" name="testSelectionA" value="itemA" checked="checked">
             <label for="itemA">Aitem1</label><br>
             <input type="radio" id="itemB" name="testSelectionA" value="itemB">
