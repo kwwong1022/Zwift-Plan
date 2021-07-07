@@ -121,8 +121,11 @@ nav {
     background-color: rgb(219, 114, 44);
 }
 
-
-
+/* user profile */
+/* new plan card */
+#new-plan-card-session {
+    padding: 1rem 2.2rem 1rem;
+}
 
 /* footer */
 footer {
@@ -226,6 +229,11 @@ footer a:hover {
         display: none; 
     }
 
+    /* new plan card */
+    .main-content #new-plan-card-session {
+        padding: 1rem .7rem 1rem;
+    }
+
     /* footer */
     #footer-grid-1 {
         width: 100%;
@@ -266,6 +274,11 @@ footer a:hover {
     }
     #welcome-grid-right {
         display: none; 
+    }
+
+    /* new plan card */
+    .main-content #new-plan-card-session {
+        padding: 1rem 1.5rem 1rem;
     }
 
     /* footer */
