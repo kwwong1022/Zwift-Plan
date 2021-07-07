@@ -41,49 +41,77 @@ const titleZoneLv = document.querySelector('#title-zone-level');
 const titlePower = document.querySelector('#title-power');
 
 const newPowerPercentage = document.querySelector('#power-percentage');
-const addPowerPercentage = document.querySelector('#power-percentage-add');
-const minusPowerPercentage = document.querySelector('#power-percentage-minus');
+const addPowerPercentageSmall = document.querySelector('#power-percentage-add-sm');
+const addPowerPercentageLarge = document.querySelector('#power-percentage-add-l');
+const minusPowerPercentageSmall = document.querySelector('#power-percentage-minus-sm');
+const minusPowerPercentageLarge = document.querySelector('#power-percentage-minus-l');
 
 const newPowerWatt = document.querySelector('#power-watt');
-const addPowerWatt = document.querySelector('#power-watt-add');
-const minusPowerWatt = document.querySelector('#power-watt-minus');
+const addPowerWattSmall = document.querySelector('#power-watt-add-sm');
+const addPowerWattLarge = document.querySelector('#power-watt-add-l');
+const minusPowerWattSmall = document.querySelector('#power-watt-minus-sm');
+const minusPowerWattLarge = document.querySelector('#power-watt-minus-l');
 
 let userWeight = "75";
 let userFTP = "200";
 
-addPowerPercentage.addEventListener('click', () => {
+addPowerPercentageSmall.addEventListener('click', () => {
     let currPer = parseInt(newPowerPercentage.innerText);
     currPer += 1;
     newPowerPercentage.innerText = currPer;
     updatePower();
-
+    updateAddCardTitle();
+})
+addPowerPercentageLarge.addEventListener('click', () => {
+    let currPer = parseInt(newPowerPercentage.innerText);
+    currPer += 5;
+    newPowerPercentage.innerText = currPer;
+    updatePower();
     updateAddCardTitle();
 })
 
-minusPowerPercentage.addEventListener('click', () => {
+minusPowerPercentageSmall.addEventListener('click', () => {
     let currPer = parseInt(newPowerPercentage.innerText);
     currPer -= 1;
     newPowerPercentage.innerText = currPer;
     updatePower();
-
+    updateAddCardTitle();
+})
+minusPowerPercentageLarge.addEventListener('click', () => {
+    let currPer = parseInt(newPowerPercentage.innerText);
+    currPer -= 5;
+    newPowerPercentage.innerText = currPer;
+    updatePower();
     updateAddCardTitle();
 })
 
-addPowerWatt.addEventListener('click', () => {
+addPowerWattSmall.addEventListener('click', () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    currPow += 1;
+    newPowerWatt.innerText = currPow;
+    updatePercentage();
+    updateAddCardTitle();
+})
+addPowerWattLarge.addEventListener('click', () => {
     let currPow = parseInt(newPowerWatt.innerText);
     currPow += 5;
     newPowerWatt.innerText = currPow;
     updatePercentage();
-
     updateAddCardTitle();
 })
 
-minusPowerWatt.addEventListener('click', () => {
+minusPowerWattSmall.addEventListener('click', () => {
+    let currPow = parseInt(newPowerWatt.innerText);
+    currPow -= 1;
+    newPowerWatt.innerText = currPow;
+    updatePercentage();
+    updateAddCardTitle();
+})
+minusPowerWattLarge.addEventListener('click', () => {
     let currPow = parseInt(newPowerWatt.innerText);
     currPow -= 5;
     newPowerWatt.innerText = currPow;
     updatePercentage();
-
     updateAddCardTitle();
 })
 
