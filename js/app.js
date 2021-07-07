@@ -34,3 +34,8 @@ const welcomeBtn = document.querySelector('#close-welcome-msg');
 welcomeBtn.addEventListener('click', ()=> {
     msgWelcome.style.display = "none";
 })
+
+// Plan Tool
+let userWeight = "75";
+let userFTP = "200";
+
