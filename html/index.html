@@ -95,13 +95,17 @@
 
 
     <form id="formMain" action="/action_page.php" onsubmit="download('trainingPlan.txt')">
-        ItemA: <input type="text" name="itemA"><br>
-        ItemB: <input type="text" name="itemB"><br><br>
-        <input type="button" onclick="formFunct()" value="Buttom">
-        <input type="button" onclick="createText('trainingPlan.txt')" value="Submit">
+        <div id="question1">    
+            <input type="radio" id="itemA" name="testSelectionA" value="itemA" checked="checked">
+            <label for="itemA">Aitem1</label><br>
+            <input type="radio" id="itemB" name="testSelectionA" value="itemB">
+            <label for="itemB">AItem1</label><br>
+            <input type="button" onclick="addQuestion()" value="Add">
+            <input type="button" onclick="createText('trainingPlan.txt')" value="Submit">
+        </div>
     </form>
 
-    <p id="demo"></p>
+    <p id="demo">test</p>
 
     <!-- Footer -->
     <footer style="background-color: rgb(252, 132, 53);">
@@ -143,6 +147,7 @@
     <!-- Custom js script-->
     <script src="../js/app.js"></script>
     <script src="../js/planTool.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>
