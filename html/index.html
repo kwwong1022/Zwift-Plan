@@ -74,33 +74,38 @@
             <section id="new-plan-card-session">
                 <div class="d-flex" style="justify-content: center;">
                     <div id="new-plan-card" class="card d-flex">
-                        <div class="card-grid-left" style="width: 80%">
+                        <div class="card-grid-left" style="width: 85%">
                             <!-- Workout Title -->
-                            <span style="font-size: 1.5rem; font-weight: 500;">ZONE
+                            <span style="font-size: 1.5rem; font-weight: 510;">ZONE
                                 <span id="title-zone-level">2</span> -
                                 <span id="title-power">200</span>w
                             </span>
 
                             <div class="power-edit d-flex"
-                                style="align-content: center; justify-content: space-between; padding-top: .4rem; padding-right: 2rem;">
+                                style="align-content: center; justify-content: space-between; padding-top: .4rem; 
+                                padding-right: 1rem;">
                                 <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">POWER:</span>
-                                <button id="power-percentage-add">+</button>
+
+                                <button id="power-minus" class="btn-sm">-</button>
                                 <span style="font-size: 1.6rem; font-weight: 500;">
                                     <span id="power-percentage">80</span>%
                                 </span>
-                                <button id="power-minus">-</button>
-                                <button id="power-add">+</button>
+                                <button id="power-percentage-add" class="btn-sm">+</button>
+
+                                <button id="power-minus" class="btn-sm">-</button>
                                 <span style="font-size: 1.6rem; font-weight: 500;">
                                     <span id="power-percentage">180</span>w
                                 </span>
-                                <button id="power-minus">-</button>
+                                <button id="power-add" class="btn-sm">+</button>
                             </div>
+                            
                         </div>
-                        <div class="card-grid-right" style="width: 20%;">
+                        <div class="card-grid-right" style="width: 15%;">
                             <!-- Add New card Button-->
                             <button id="add-new-plan" style="display: flex; justify-content: center; 
-                            align-content: center; background-color: white; width: 70px; height: 70px; 
-                            border-radius: 50%; border: none;"></button>
+                            align-content: center; background-color: transparent; color: white;
+                            font-size: 3rem; width: 60px; height: 60px; 
+                            border-radius: 50%; border: none;">+</button>
                         </div>
                     </div>
                     <div style="width: 0%;"></div>

@@ -134,6 +134,15 @@ nav {
     align-items: center;
 }
 
+.btn-sm {
+    width: 15px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: grey;
+}
+
 /* footer */
 footer {
     color: rgb(247, 247, 247);
