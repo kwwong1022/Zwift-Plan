@@ -35,6 +35,16 @@ welcomeBtn.addEventListener('click', () => {
     msgWelcome.style.display = "none";
 })
 
+// User Profile
+// test only, final -> condition > tab d-none
+const hideProfileBtn = document.querySelector('.hide-session-btn');
+const hideBtnL = document.querySelector('.hide-session-l');
+const hideBtnR = document.querySelector('.hide-session-r');
+hideProfileBtn.addEventListener('click', ()=> {
+    hideBtnL.style.transform = "rotate(-45deg)";
+    hideBtnR.style.transform = "rotate(45deg)";
+})
+
 // Plan Tool
 const newPlanCard = document.querySelector('#new-plan-card');
 const titleZoneLv = document.querySelector('#title-zone-level');
@@ -138,19 +148,19 @@ let updateAddCardTitle = () => {
         currBgColor = "rgb(141, 141, 141)";
     } else if (currZonePow >= 0.56 && currZonePow < 0.76) {
         currZone = "2"
-        currBgColor = "rgb(56, 173, 219)";
+        currBgColor = "rgb(59, 179, 248)";
     } else if (currZonePow >= 0.76 && currZonePow < 0.88) {
         currZone = "3"
         currBgColor = "rgb(46, 196, 71)";
     } else if (currZonePow >= 0.88 && currZonePow < 0.95) {
         currZone = "4"
-        currBgColor = "rgb(218, 155, 62)";
+        currBgColor = "rgb(252, 132, 53)";
     } else if (currZonePow >= 0.95 && currZonePow < 1.05) {
         currZone = "5"
-        currBgColor = "rgb(194, 218, 61)";
+        currBgColor = "rgb(233, 203, 68)";
     } else if (currZonePow >= 1.05 && currZonePow < 1.55) {
         currZone = "6"
-        currBgColor = "rgb(207, 57, 57)";
+        currBgColor = "rgb(233, 68, 68)";
     } else {
         currZone = "7"
         currBgColor = "rgb(170, 35, 159)";

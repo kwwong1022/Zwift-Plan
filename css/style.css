@@ -116,13 +116,17 @@ nav {
 }
 
 /* user profile */
+.hide-session-l, .hide-session-r, .hide-session-l:hover, .hide-session-r:hover {
+    transition: 0.3s ease-in;
+}
+
 /* new plan card */
 #new-plan-card-session, #workout-plan-session {
     padding: 1rem 2.2rem 1rem;
 }
 
 .card {
-    min-width: 28rem;  
+    min-width: 27rem;  
     width: 30rem;  
     background-color: rgb(46, 196, 71); 
 
@@ -404,6 +408,8 @@ footer a:hover {
     }
 }
 
+/* Animation */
+/* Nav */
 @keyframes navLinkFade {
     from {
         opacity: 0;
@@ -411,6 +417,16 @@ footer a:hover {
     } to {
         opacity: 1;
         transform: translateX(1rem);
+    }
+}
+
+@keyframes addCardFade {
+    from {
+        opacity: 1;
+        transform: translateY(0rem)
+    } to {
+        opacity: 0;
+        transform: translateY(20rem);
     }
 }
 

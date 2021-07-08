@@ -62,14 +62,46 @@
 
             <!-- User Profile -->
             <section id="user-profile" style="padding: 1rem 2rem 1rem;">
-                <h2>User Profile</h2>
-                <div class="d-flex">
-
+                <div class="d-flex" style="justify-content: space-between;">
+                    <h2>User Profile</h2>
+                    
+                    <div class="hide-session-btn d-flex" style="padding: .7rem 1rem 0 0;">
+                        <div class="hide-session-l" style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(45deg); margin: 0 -3px 0;"></div>
+                        <div class="hide-session-r" style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(-45deg); margin: 0 -3px 0;"></div>
+                    </div>
                 </div>
                 <!-- Name -->
-                <!-- Weight -->
-                <!-- FTP -->
-                <!-- Metric -->
+                <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem .2rem;">
+                    <div style="width: 50%; display: flex; justify-content: space-between;">
+                        <label for="cyclist-name" style="width: 30%;">Cyclist: </label>
+                        <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 70%;">
+                    </div>
+                    <div style="width: 50%; display: flex; justify-content: space-between; padding-left: .5rem;">
+                        <label for="author-name" style="width: 30%;">Author: </label>
+                        <input id="author-name" type="text" placeholder="Author Name" style="width: 70%;">
+                    </div>
+                </div>
+
+                <div class="d-flex" style="justify-content: space-between; margin: .7rem .08rem 0rem;">
+                    <!-- FTP -->
+                    <div style="width: 30%; display: flex; justify-content: space-between;">
+                        <label for="cyclist-ftp" style="width: 50%;">FTP: </label>
+                        <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 50%;">
+                    </div>
+
+                    <!-- Weight -->
+                    <div style="width: 30%; display: flex; justify-content: space-between;">
+                        <label for="cyclist-weight" style="width: 50%;">Weight: </label>
+                        <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 50%;">
+                    </div>
+
+                    <!-- Metric -->
+                    <div style="width: 30%; display: flex; justify-content: space-between;">
+                        <label for="metric" style="width: 50%;">Metric: </label>
+                        <input id="metric" type="text" placeholder="Kg" style="width: 50%;">
+                    </div>
+                </div>
+
                 <div class="break-line"></div>
             </section>
 
