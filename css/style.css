@@ -117,12 +117,13 @@ nav {
 
 /* user profile */
 /* new plan card */
-#new-plan-card-session {
+#new-plan-card-session, #workout-plan-session {
     padding: 1rem 2.2rem 1rem;
 }
 
 .card {
-    width: 27rem;  
+    min-width: 28rem;  
+    width: 30rem;  
     background-color: rgb(46, 196, 71); 
 
     padding: .5rem .8rem .5rem;                
@@ -281,7 +282,7 @@ footer a:hover {
     }
 
     /* new plan card */
-    .main-content #new-plan-card-session {
+    .main-content #new-plan-card-session, #workout-plan-session {
         padding: 1rem .7rem 1rem;
     }
 
@@ -332,7 +333,7 @@ footer a:hover {
     }
 
     /* new plan card */
-    .main-content #new-plan-card-session {
+    .main-content #new-plan-card-session, #workout-plan-session {
         padding: 1rem 1.5rem 1rem;
     }
 

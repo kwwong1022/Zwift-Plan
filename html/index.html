@@ -63,6 +63,9 @@
             <!-- User Profile -->
             <section id="user-profile" style="padding: 1rem 2rem 1rem;">
                 <h2>User Profile</h2>
+                <div class="d-flex">
+
+                </div>
                 <!-- Name -->
                 <!-- Weight -->
                 <!-- FTP -->
@@ -73,7 +76,7 @@
             <!-- New Plan Card -->
             <div id="AllPlanCard">
                 <section id="new-plan-card-session">
-                    <div class="d-flex" style="justify-content: center;">
+                    <div class="d-flex" style="width: 100%; justify-content: center;">
                         <div id="new-plan-card" class="card d-flex">
                             <div class="card-grid-left" style="width: 90%">
                                 <!-- Workout Title -->
@@ -85,14 +88,16 @@
                                 <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
                                     <div class="d-flex">
-                                        <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span>
+                                        <span
+                                            style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span>
                                     </div>
 
                                     <div class="d-flex" style="padding: 0 .8rem 0">
                                         <button id="power-percentage-minus-l" class="btn-sm btn-sm-l">-</button>
                                         <button id="power-percentage-minus-sm" class="btn-sm btn-sm-r">-</button>
                                         <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span style="padding: 0 .4rem 0"><span id="power-percentage">80</span>%</span>
+                                            <span style="padding: 0 .4rem 0"><span
+                                                    id="power-percentage">80</span>%</span>
                                         </span>
                                         <button id="power-percentage-add-sm" class="btn-sm btn-sm-l">+</button>
                                         <button id="power-percentage-add-l" class="btn-sm btn-sm-r">+</button>
@@ -112,7 +117,8 @@
                                 <div class="duration-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
                                     <div class="d-flex">
-                                        <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span>
+                                        <span
+                                            style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span>
                                     </div>
 
                                     <div class="d-flex">
@@ -143,7 +149,44 @@
                                 <button id="btn-add-new-plan">+</button>
                             </div>
                         </div>
-                        <div style="width: 0%;"></div>
+                    </div>
+                    <div style="width: 0%;"></div>
+                </section>
+
+                <section id="workout-plan-session">
+                    <div class="d-flex" style="width: 100%; justify-content: center;">
+                        <div id="plan-card-0" class="card d-flex">
+                            <div class="card-grid-left" style="width: 10%;">
+                                <div style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                                    <button
+                                        style="background-color: transparent; border: none; font-size: 1.5rem; color: white; text-align: left;">▲</button>
+                                    <button
+                                        style="background-color: transparent; border: none; font-size: 1.5rem; color: white; text-align: left;">▼</button>
+                                </div>
+                            </div>
+
+                            <div class="card-grid-center" style="width: 80%">
+                                <span style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                    <span id="title-zone-level">2</span> -
+                                    <span id="title-power">200</span>w&nbsp;&nbsp;&nbsp;
+                                    <span id="title-hr" style="font-weight: 480;">1</span>:<span id="title-min"
+                                        style="font-weight: 480;">30</span>:<span id="title-min"
+                                        style="font-weight: 480;">00</span>
+                                </span><br>
+
+                                <span style="font-size: 1rem; font-weight: 500;">Intensity Factor :
+                                    <span>0.96</span>&nbsp;&nbsp;&nbsp;TSS :
+                                    <span>150</span>
+                                </span>
+                            </div>
+
+                            <div class="card-grid-right" style="width: 10%;">
+                                <div style="display: flex; flex-direction: column; justify-content: center;">
+                                    <button
+                                        style="background-color: transparent; border: none; font-size: 2rem; color: white; font-weight: 500;">x</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
