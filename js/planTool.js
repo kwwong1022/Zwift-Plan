@@ -1,19 +1,28 @@
 // Plan Tool Function
 var textGlob = "Starter \n";
 var Form, VarA, VarB;
+var CardNo = 0;
 Form = document.getElementById("formMain");
 //module no = 1 calls green block
 //module no = 0 calls test question
 function moduleQuestionHTML(questionNo, moduleNo){
-    var qHTML = document.createElement("a");
+    var qHTML = document.createElement("a" + questionNo);
     if (moduleNo = 1) {
-        qHTML.innerHTML = '<div class="d-flex" style="justify-content: center;"><div id="new-plan-card" class="card"style="width: 100%; height: 8rem; padding: .5rem .8rem .5rem;background-color: rgb(46, 196, 71);border-radius: 15px 15px 15px 15px; border: 6px solid white;box-shadow: 0px 2px 13px 0px #888888; color: rgb(247, 247, 247);"><span style="font-size: 1.5rem; font-weight: 500;">Zone <span id="title-zone-level">2</span> - <span id="title-power">200</span>w</span></div><div style="width: 0%;"></div></div>';
+        qHTML.innerHTML = '<section id="new-plan-card-session"> <div class="d-flex" style="justify-content: center;"> <div id="new-plan-card" class="card d-flex"> <div class="card-grid-left" style="width: 90%"> <!-- Workout Title --> <span style="font-size: 1.5rem; font-weight: 510;">ZONE <span id="title-zone-level">2</span> - <span id="title-power">200</span>w </span> <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; padding-right: 1rem;"> <div class="d-flex"> <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span> </div> <div class="d-flex" style="padding: 0 .8rem 0"> <button id="power-percentage-minus-l" class="btn-sm btn-sm-l">-</button> <button id="power-percentage-minus-sm" class="btn-sm btn-sm-r">-</button> <span style="font-size: 1.6rem; font-weight: 500;"> <span style="padding: 0 .4rem 0"><span id="power-percentage">80</span>%</span> </span> <button id="power-percentage-add-sm" class="btn-sm btn-sm-l">+</button> <button id="power-percentage-add-l" class="btn-sm btn-sm-r">+</button> </div> <div class="d-flex"> <button id="power-watt-minus-l" class="btn-sm btn-sm-l">-</button> <button id="power-watt-minus-sm" class="btn-sm btn-sm-r">-</button> <span style="font-size: 1.6rem; font-weight: 500;"> <span style="padding: 0 .4rem 0"><span id="power-watt">180</span>w</span> </span> <button id="power-watt-add-sm" class="btn-sm btn-sm-l">+</button> <button id="power-watt-add-l" class="btn-sm btn-sm-r">+</button> </div> </div> <div class="duration-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; padding-right: 1rem;"> <div class="d-flex"> <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span> </div> <div class="d-flex"> <button id="duration-min-minus-l" class="btn-sm btn-sm-l">-</button> <button id="duration-min-minus-sm" class="btn-sm btn-sm-r">-</button> <span style="font-size: 1.6rem; font-weight: 500;"> <span id="power-percentage" style="padding: 0 .4rem 0">00</span> </span> <button id="duration-min-add-sm" class="btn-sm btn-sm-l">+</button> <button id="duration-min-add-l" class="btn-sm btn-sm-r">+</button> </div> <span style="font-size: 1.6rem; font-weight: 500;">:</span> <div class="d-flex"> <button id="duration-sec-minus-l" class="btn-sm btn-sm-l">-</button> <button id="duration-sec-minus-sm" class="btn-sm btn-sm-r">-</button> <span style="font-size: 1.6rem; font-weight: 500;"> <span id="power-percentage" style="padding: 0 .4rem 0">00</span> </span> <button id="duration-sec-add-sm" class="btn-sm btn-sm-l">+</button> <button id="duration-sec-add-l" class="btn-sm btn-sm-r">+</button> </div> </div> </div> <div class="card-grid-right" style="width: 10%;"> <!-- Add New card Button--> <button id="btn-add-new-plan">+</button> </div> </div> <div style="width: 0%;"></div> </div> </section>';
     }
     
     return qHTML;
 }
 function addQuestion(){
-    $("#new-plan-card-session").append(moduleQuestionHTML(1));
+    CardNo++;
+    $("#AllPlanCard").append(moduleQuestionHTML(CardNo, 1));
+}
+function addPowerPercentageLow(powerPercentageElement){
+    let currPer = parseInt(powerPercentageElement.innerText);
+    currPer += 1;
+    powerPercentageElement.innerText = currPer;
+    updatePower();
+    updateAddCardTitle();
 }
 function createText(filename) {
     var text = textGlob;
