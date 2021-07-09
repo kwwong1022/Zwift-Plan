@@ -36,17 +36,35 @@ welcomeBtn.addEventListener('click', () => {
 })
 
 // User Profile
-// test only, final -> condition > tab d-none
+let profileIsClosed = false;
+const userProfileSession = document.querySelector("#user-profile");
+const userInfo = document.querySelector('#user-info');
+const userProileBreakLine = document.querySelector("#user-profile .break-line");
+// Button Animation
 const hideProfileBtn = document.querySelector('.hide-session-btn');
 const hideBtnL = document.querySelector('.hide-session-l');
 const hideBtnR = document.querySelector('.hide-session-r');
-hideProfileBtn.addEventListener('click', ()=> {
-    hideBtnL.style.transform = "rotate(-45deg)";
-    hideBtnR.style.transform = "rotate(45deg)";
+
+hideProfileBtn.addEventListener('click', () => {
+    if (profileIsClosed) {
+        hideBtnL.style.transform = "rotate(45deg)";
+        hideBtnR.style.transform = "rotate(-45deg)";
+        userInfo.style.display = "inline";
+        userProileBreakLine.style.marginTop = "2.5rem";
+        userProfileSession.style.padding = "1rem 2rem 1rem";
+        profileIsClosed = false;
+    } else {
+        hideBtnL.style.transform = "rotate(-45deg)";
+        hideBtnR.style.transform = "rotate(45deg)";
+        userInfo.style.display = "none";
+        userProileBreakLine.style.marginTop = "1rem";
+        userProfileSession.style.padding = ".05rem 2rem 1rem";
+        profileIsClosed = true;
+    }
 })
 
 // Plan Tool
-const newPlanCard = document.querySelector('#new-plan-card');
+const newPlanCard = document.querySelector('.plan-card');
 const titleZoneLv = document.querySelector('#title-zone-level');
 const titlePower = document.querySelector('#title-power');
 

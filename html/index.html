@@ -8,6 +8,7 @@
     <title>Zwift Plan</title>
     <!-- link CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/card.css">
     <!-- font-family: 'Quicksand', sans-serif; -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
@@ -64,164 +65,246 @@
             <section id="user-profile" style="padding: 1rem 2rem 1rem;">
                 <div class="d-flex" style="justify-content: space-between;">
                     <h2>User Profile</h2>
-                    
+
                     <div class="hide-session-btn d-flex" style="padding: .7rem 1rem 0 0;">
-                        <div class="hide-session-l" style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(45deg); margin: 0 -3px 0;"></div>
-                        <div class="hide-session-r" style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(-45deg); margin: 0 -3px 0;"></div>
-                    </div>
-                </div>
-                <!-- Name -->
-                <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem .2rem;">
-                    <div style="width: 50%; display: flex; justify-content: space-between;">
-                        <label for="cyclist-name" style="width: 30%;">Cyclist: </label>
-                        <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 70%;">
-                    </div>
-                    <div style="width: 50%; display: flex; justify-content: space-between; padding-left: .5rem;">
-                        <label for="author-name" style="width: 30%;">Author: </label>
-                        <input id="author-name" type="text" placeholder="Author Name" style="width: 70%;">
+                        <div class="hide-session-l"
+                            style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(45deg); margin: 0 -3px 0;">
+                        </div>
+                        <div class="hide-session-r"
+                            style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(-45deg); margin: 0 -3px 0;">
+                        </div>
                     </div>
                 </div>
 
-                <div class="d-flex" style="justify-content: space-between; margin: .7rem .08rem 0rem;">
-                    <!-- FTP -->
-                    <div style="width: 30%; display: flex; justify-content: space-between;">
-                        <label for="cyclist-ftp" style="width: 50%;">FTP: </label>
-                        <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 50%;">
+                <div id="user-info">
+                    <!-- Name -->
+                    <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem .2rem;">
+                        <div style="width: 50%; display: flex; justify-content: space-between;">
+                            <label for="cyclist-name" style="width: 30%;">Cyclist: </label>
+                            <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 70%;">
+                        </div>
+                        <div style="width: 50%; display: flex; justify-content: space-between; padding-left: .5rem;">
+                            <label for="author-name" style="width: 30%;">Author: </label>
+                            <input id="author-name" type="text" placeholder="Author Name" style="width: 70%;">
+                        </div>
                     </div>
 
-                    <!-- Weight -->
-                    <div style="width: 30%; display: flex; justify-content: space-between;">
-                        <label for="cyclist-weight" style="width: 50%;">Weight: </label>
-                        <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 50%;">
-                    </div>
+                    <div class="d-flex" style="justify-content: space-between; margin: .7rem .08rem 0rem;">
+                        <!-- FTP -->
+                        <div style="width: 30%; display: flex; justify-content: space-between;">
+                            <label for="cyclist-ftp" style="width: 50%;">FTP: </label>
+                            <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 50%;">
+                        </div>
 
-                    <!-- Metric -->
-                    <div style="width: 30%; display: flex; justify-content: space-between;">
-                        <label for="metric" style="width: 50%;">Metric: </label>
-                        <input id="metric" type="text" placeholder="Kg" style="width: 50%;">
+                        <!-- Weight -->
+                        <div style="width: 30%; display: flex; justify-content: space-between;">
+                            <label for="cyclist-weight" style="width: 50%;">Weight: </label>
+                            <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 50%;">
+                        </div>
+
+                        <!-- Metric -->
+                        <div style="width: 30%; display: flex; justify-content: space-between;">
+                            <label for="metric" style="width: 50%;">Metric: </label>
+                            <input id="metric" type="text" placeholder="Kg" style="width: 50%;">
+                        </div>
                     </div>
                 </div>
 
                 <div class="break-line"></div>
             </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- querySelector(`#plan-card-${i} .title-zone-level`); -->
+
+
+
+
+
+
+
+
             <!-- New Plan Card -->
-            <div id="AllPlanCard">
-                <section id="new-plan-card-session">
-                    <div class="d-flex" style="width: 100%; justify-content: center;">
-                        <div id="new-plan-card" class="card d-flex">
-                            <div class="card-grid-left" style="width: 90%">
-                                <!-- Workout Title -->
-                                <span style="font-size: 1.5rem; font-weight: 510;">ZONE
-                                    <span id="title-zone-level">2</span> -
-                                    <span id="title-power">200</span>w
-                                </span>
+            <section id="new-plan-card-session">
+                <div class="d-flex" style="width: 100%; justify-content: center;">
 
-                                <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
+
+                    <!-- plan card[0] -->
+                    <div id="plan-card-0" class="plan-card card d-flex">
+                        <div class="card-grid-left" style="width: 90%">
+                            <!-- Workout Title -->
+                            <span style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                <span class="title-zone-level">2</span> -
+                                <span class="title-power">200</span>w
+                            </span>
+
+                            <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
-                                    <div class="d-flex">
-                                        <span
-                                            style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span>
-                                    </div>
-
-                                    <div class="d-flex" style="padding: 0 .8rem 0">
-                                        <button id="power-percentage-minus-l" class="btn-sm btn-sm-l">-</button>
-                                        <button id="power-percentage-minus-sm" class="btn-sm btn-sm-r">-</button>
-                                        <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span style="padding: 0 .4rem 0"><span
-                                                    id="power-percentage">80</span>%</span>
-                                        </span>
-                                        <button id="power-percentage-add-sm" class="btn-sm btn-sm-l">+</button>
-                                        <button id="power-percentage-add-l" class="btn-sm btn-sm-r">+</button>
-                                    </div>
-
-                                    <div class="d-flex">
-                                        <button id="power-watt-minus-l" class="btn-sm btn-sm-l">-</button>
-                                        <button id="power-watt-minus-sm" class="btn-sm btn-sm-r">-</button>
-                                        <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span style="padding: 0 .4rem 0"><span id="power-watt">180</span>w</span>
-                                        </span>
-                                        <button id="power-watt-add-sm" class="btn-sm btn-sm-l">+</button>
-                                        <button id="power-watt-add-l" class="btn-sm btn-sm-r">+</button>
-                                    </div>
+                                <div class="d-flex">
+                                    <span style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span>
                                 </div>
 
-                                <div class="duration-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
+                                <div class="d-flex" style="padding: 0 .8rem 0">
+                                    <button class="power-percentage-minus-l btn btn-sm btn-sm-l">-</button>
+                                    <button class="power-percentage-minus-sm btn btn-sm btn-sm-r">-</button>
+                                    <span style="font-size: 1.6rem; font-weight: 500;">
+                                        <span style="padding: 0 .4rem 0"><span class="power-percentage">80</span>%</span>
+                                    </span>
+                                    <button class="power-percentage-add-sm btn btn-sm btn-sm-l">+</button>
+                                    <button class="power-percentage-add-l btn btn-sm btn-sm-r">+</button>
+                                </div>
+
+                                <div class="d-flex">
+                                    <button class="power-watt-minus-l btn btn-sm btn-sm-l">-</button>
+                                    <button class="power-watt-minus-sm btn btn-sm btn-sm-r">-</button>
+                                    <span style="font-size: 1.6rem; font-weight: 500;">
+                                        <span style="padding: 0 .4rem 0"><span class="power-watt">180</span>w</span>
+                                    </span>
+                                    <button class="power-watt-add-sm btn btn-sm btn-sm-l">+</button>
+                                    <button class="power-watt-add-l btn btn-sm btn-sm-r">+</button>
+                                </div>
+                            </div>
+
+                            <div class="duration-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
-                                    <div class="d-flex">
-                                        <span
-                                            style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span>
-                                    </div>
-
-                                    <div class="d-flex">
-                                        <button id="duration-min-minus-l" class="btn-sm btn-sm-l">-</button>
-                                        <button id="duration-min-minus-sm" class="btn-sm btn-sm-r">-</button>
-                                        <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span id="power-percentage" style="padding: 0 .4rem 0">00</span>
-                                        </span>
-                                        <button id="duration-min-add-sm" class="btn-sm btn-sm-l">+</button>
-                                        <button id="duration-min-add-l" class="btn-sm btn-sm-r">+</button>
-                                    </div>
-
-                                    <span style="font-size: 1.6rem; font-weight: 500;">:</span>
-
-                                    <div class="d-flex">
-                                        <button id="duration-sec-minus-l" class="btn-sm btn-sm-l">-</button>
-                                        <button id="duration-sec-minus-sm" class="btn-sm btn-sm-r">-</button>
-                                        <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span id="power-percentage" style="padding: 0 .4rem 0">00</span>
-                                        </span>
-                                        <button id="duration-sec-add-sm" class="btn-sm btn-sm-l">+</button>
-                                        <button id="duration-sec-add-l" class="btn-sm btn-sm-r">+</button>
-                                    </div>
+                                <div class="d-flex">
+                                    <span
+                                        style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span>
                                 </div>
-                            </div>
-                            <div class="card-grid-right" style="width: 10%;">
-                                <!-- Add New card Button-->
-                                <button id="btn-add-new-plan">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 0%;"></div>
-                </section>
 
-                <section id="workout-plan-session">
-                    <div class="d-flex" style="width: 100%; justify-content: center;">
-                        <div id="plan-card-0" class="card d-flex">
-                            <div class="card-grid-left" style="width: 10%;">
-                                <div style="display: flex; flex-direction: column; justify-content: space-evenly;">
-                                    <button
-                                        style="background-color: transparent; border: none; font-size: 1.5rem; color: white; text-align: left;">▲</button>
-                                    <button
-                                        style="background-color: transparent; border: none; font-size: 1.5rem; color: white; text-align: left;">▼</button>
+                                <div class="d-flex">
+                                    <button class="duration-min-minus-l btn btn-sm btn-sm-l">-</button>
+                                    <button class="duration-min-minus-sm btn btn-sm btn-sm-r">-</button>
+                                    <span style="font-size: 1.6rem; font-weight: 500;">
+                                        <span class="power-percentage" style="padding: 0 .4rem 0">00</span>
+                                    </span>
+                                    <button class="duration-min-add-sm btn btn-sm btn-sm-l">+</button>
+                                    <button class="duration-min-add-l btn btn-sm btn-sm-r">+</button>
                                 </div>
-                            </div>
 
-                            <div class="card-grid-center" style="width: 80%">
-                                <span style="font-size: 1.5rem; font-weight: 510;">ZONE
-                                    <span id="title-zone-level">2</span> -
-                                    <span id="title-power">200</span>w&nbsp;&nbsp;&nbsp;
-                                    <span id="title-hr" style="font-weight: 480;">1</span>:<span id="title-min"
-                                        style="font-weight: 480;">30</span>:<span id="title-min"
-                                        style="font-weight: 480;">00</span>
-                                </span><br>
+                                <span style="font-size: 1.6rem; font-weight: 500;">:</span>
 
-                                <span style="font-size: 1rem; font-weight: 500;">Intensity Factor :
-                                    <span>0.96</span>&nbsp;&nbsp;&nbsp;TSS :
-                                    <span>150</span>
-                                </span>
-                            </div>
-
-                            <div class="card-grid-right" style="width: 10%;">
-                                <div style="display: flex; flex-direction: column; justify-content: center;">
-                                    <button
-                                        style="background-color: transparent; border: none; font-size: 2rem; color: white; font-weight: 500;">x</button>
+                                <div class="d-flex">
+                                    <button class="duration-sec-minus-l btn btn-sm btn-sm-l">-</button>
+                                    <button class="duration-sec-minus-sm btn btn-sm btn-sm-r">-</button>
+                                    <span style="font-size: 1.6rem; font-weight: 500;">
+                                        <span class="power-percentage" style="padding: 0 .4rem 0">00</span>
+                                    </span>
+                                    <button class="duration-sec-add-sm btn btn-sm btn-sm-l">+</button>
+                                    <button class="duration-sec-add-l btn btn-sm btn-sm-r">+</button>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-grid-right" style="width: 10%;">
+                            <!-- Add New card Button-->
+                            <button class="btn-add-new-plan btn btn-b">+</button>
+                        </div>
                     </div>
-                </section>
-            </div>
+                </div>
+                <div style="width: 0%;"></div>
+            </section>
+
+
+            <section id="workout-plan-session">
+                <div class="d-flex" style="width: 100%; justify-content: center;">
+                    
+    
+                    <div id="plan-card-0" class="card d-flex">
+                        <div class="card-grid-left" style="width: 10%;">
+                            <div style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                                <button class="btn btn-b"
+                                    style="background-color: transparent; border: none; font-size: 1.5rem; text-align: left;">▲</button>
+                                <button class="btn btn-b"
+                                    style="background-color: transparent; border: none; font-size: 1.5rem; text-align: left;">▼</button>
+                            </div>
+                        </div>
+
+                        <div class="card-grid-center" style="width: 80%">
+                            <span style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                <span class="title-zone-level">2</span> -
+                                <span class="title-power">200</span>w&nbsp;&nbsp;&nbsp;
+                                <span class="title-hr" style="font-weight: 480;">1</span>:<span id="title-min"
+                                    style="font-weight: 480;">30</span>:<span id="title-min"
+                                    style="font-weight: 480;">00</span>
+                            </span><br>
+
+                            <span style="font-size: 1rem; font-weight: 500;">Intensity Factor :
+                                <span>0.96</span>&nbsp;&nbsp;&nbsp;TSS :
+                                <span>150</span>
+                            </span>
+                        </div>
+
+                        <div class="card-grid-right" style="width: 10%;">
+                            <div style="display: flex; flex-direction: column; justify-content: center;">
+                                <button class="btn btn-b"
+                                    style="background-color: transparent; border: none; font-size: 2rem;font-weight: 500;">x</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
 
         <div class="side-bar">

@@ -1,0 +1,106 @@
+/* plan card */
+#new-plan-card-session, #workout-plan-session {
+    padding: 1rem 2.2rem 1rem;
+}
+
+.card {
+    min-width: 27rem;  
+    width: 30rem;  
+    background-color: rgb(46, 196, 71); 
+
+    padding: .5rem .8rem .5rem;                
+    border-radius: 15px 15px 15px 15px; 
+    border: 6px solid white;          
+    box-shadow: 0px 2px 13px 0px #888888; 
+    color: rgb(247, 247, 247);
+
+    align-items: center;
+}
+
+.btn-sm {
+    width: 16px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: grey;
+}
+
+.btn-sm-l {
+    width: 13px;
+    height: 30px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    background-color: white;
+    color: grey;
+}
+.btn-sm-r {
+    width: 13px;
+    height: 30px;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    background-color: white;
+    color: grey;
+}
+
+.btn-add-new-plan {     
+    font-size: 3rem; 
+    width: 60px; 
+    height: 60px;                 
+    border-radius: 50%; 
+    border: none; 
+    padding-right: 1.4rem;
+}
+
+.btn:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.btn-b {
+    background-color: transparent; 
+    color: white;
+}
+.btn-b:hover {
+    background-color: transparent; 
+    color: rgb(230, 230, 230);
+}
+
+
+@media (max-width: 576px) {
+    /* new plan card */
+    .main-content #new-plan-card-session, #workout-plan-session {
+        padding: 1rem .7rem 1rem;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* new plan card */
+    .main-content #new-plan-card-session, #workout-plan-session {
+        padding: 1rem 1.5rem 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+/* Animation */
+
+@keyframes addCardFade {
+    from {
+        opacity: 1;
+        transform: translateY(0rem)
+    } to {
+        opacity: 0;
+        transform: translateY(20rem);
+    }
+}
