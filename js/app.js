@@ -138,56 +138,18 @@ addPowerPercentageSmall.addEventListener('click', () => {
     updateAddCardTitle();
 })
 addPowerPercentageLarge.addEventListener('click', () => {
-    let currPer = parseInt(newPowerPercentage.innerText);
-    currPer += 5;
-    newPowerPercentage.innerText = currPer;
-    updatePower();
-    updateAddCardTitle();
 })
-
 minusPowerPercentageSmall.addEventListener('click', () => {
-    let currPer = parseInt(newPowerPercentage.innerText);
-    currPer -= 1;
-    newPowerPercentage.innerText = currPer;
-    updatePower();
-    updateAddCardTitle();
 })
 minusPowerPercentageLarge.addEventListener('click', () => {
-    let currPer = parseInt(newPowerPercentage.innerText);
-    currPer -= 5;
-    newPowerPercentage.innerText = currPer;
-    updatePower();
-    updateAddCardTitle();
 })
-
 addPowerWattSmall.addEventListener('click', () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    currPow += 1;
-    newPowerWatt.innerText = currPow;
-    updatePercentage();
-    updateAddCardTitle();
 })
 addPowerWattLarge.addEventListener('click', () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    currPow += 5;
-    newPowerWatt.innerText = currPow;
-    updatePercentage();
-    updateAddCardTitle();
 })
-
 minusPowerWattSmall.addEventListener('click', () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    currPow -= 1;
-    newPowerWatt.innerText = currPow;
-    updatePercentage();
-    updateAddCardTitle();
 })
 minusPowerWattLarge.addEventListener('click', () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    currPow -= 5;
-    newPowerWatt.innerText = currPow;
-    updatePercentage();
-    updateAddCardTitle();
 })
 
 let updatePower = () => {

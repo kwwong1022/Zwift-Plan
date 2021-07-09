@@ -161,6 +161,11 @@ footer a:hover {
     text-align: right;
 }
 
+/* ad */
+.ad {
+    max-width: 18rem;
+}
+
 @media (max-width: 576px) {
     body {
         overflow-x: hidden;
