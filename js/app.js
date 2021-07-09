@@ -1,5 +1,5 @@
 // Web Style Function
-// Navbar
+// Navbar ===============================================================================
 const mainNav = document.querySelector('.main-nav');
 const toggler = document.querySelector('.toggler');
 const nav = document.querySelector('.nav-links');
@@ -27,7 +27,7 @@ visualViewport.addEventListener('resize', function () {
     });
 });
 
-// Welcome Message
+// Welcome Message ============================================================================
 const msgWelcome = document.querySelector('#msg-welcome');
 const welcomeBtn = document.querySelector('#close-welcome-msg');
 
@@ -35,11 +35,61 @@ welcomeBtn.addEventListener('click', () => {
     msgWelcome.style.display = "none";
 })
 
-// User Profile
+// User Profile ===============================================================================
+let cyclistName = "";
+let authorName = "";
+let userFTP = 200;
+let isFTPNaN = false;
+let userWeight = 75;
+let isWeightNaN = false;
+let metric = "kilogram";
 let profileIsClosed = false;
+
+document.querySelector('#cyclist-name').addEventListener('change', () => {
+    cyclistName = document.querySelector('#cyclist-name').value;
+});
+document.querySelector('#author-name').addEventListener('change', () => {
+    authorName = document.querySelector('#author-name').value;
+});
+document.querySelector('#metric').addEventListener('change', () => {
+    metric = document.querySelector('#metric').value;
+    console.log(metric);
+});
+document.querySelector('#cyclist-ftp').addEventListener('change', () => {
+    if (isNaN(document.querySelector('#cyclist-ftp').value)) {
+        isFTPNaN = true;
+        if (isFTPNaN) {
+            alert("Invaild input, please try again.");
+            isFTPNaN = false;
+        }
+    } else {
+        userFTP = document.querySelector('#cyclist-ftp').value;
+        console.log(`FTP: ${userFTP}`);
+    }
+});
+document.querySelector('#cyclist-weight').addEventListener('change', () => {
+    if (isNaN(document.querySelector('#cyclist-weight').value)) {
+        isWeightNaN = true;
+        if (isWeightNaN) {
+            alert("Invaild input, please try again.");
+            isWeightNaN = false;
+        }
+    } else {
+        if (metric === "kilogram") {
+            userWeight = document.querySelector('#cyclist-weight').value;
+            console.log(`Weight: ${userWeight}`);
+        } else if (metric === "pound"){
+            userWeight = document.querySelector('#cyclist-weight').value/2.205;
+            console.log(`Weight: ${userWeight}`);
+        }
+    }
+});
+
+// hide function
 const userProfileSession = document.querySelector("#user-profile");
 const userInfo = document.querySelector('#user-info');
 const userProileBreakLine = document.querySelector("#user-profile .break-line");
+
 // Button Animation
 const hideProfileBtn = document.querySelector('.hide-session-btn');
 const hideBtnL = document.querySelector('.hide-session-l');
@@ -63,7 +113,7 @@ hideProfileBtn.addEventListener('click', () => {
     }
 })
 
-// Plan Tool
+// Plan Tool ===============================================================================
 const newPlanCard = document.querySelector('.plan-card');
 const titleZoneLv = document.querySelector('#title-zone-level');
 const titlePower = document.querySelector('#title-power');
@@ -79,9 +129,6 @@ const addPowerWattSmall = document.querySelector('#power-watt-add-sm');
 const addPowerWattLarge = document.querySelector('#power-watt-add-l');
 const minusPowerWattSmall = document.querySelector('#power-watt-minus-sm');
 const minusPowerWattLarge = document.querySelector('#power-watt-minus-l');
-
-let userWeight = "75";
-let userFTP = "200";
 
 addPowerPercentageSmall.addEventListener('click', () => {
     let currPer = parseInt(newPowerPercentage.innerText);
