@@ -114,6 +114,13 @@ hideProfileBtn.addEventListener('click', () => {
 })
 
 // Plan Tool ===============================================================================
+document.querySelector('#plan-card-0').addEventListener('mouseover', ()=> {
+    console.log("hover");
+    document.querySelector('#plan-card-0 .edit-card').style.display = "flex";
+    document.querySelector('#plan-card-0 .card-info').style.display = "none";
+})
+
+/*
 const newPlanCard = document.querySelector('.plan-card');
 const titleZoneLv = document.querySelector('#title-zone-level');
 const titlePower = document.querySelector('#title-power');
@@ -197,3 +204,4 @@ let updateAddCardTitle = () => {
     titlePower.innerText = newPowerWatt.innerText;
     newPlanCard.style.backgroundColor = currBgColor;
 }
+*/

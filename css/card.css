@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.edit-card, .card-info {
+    display: flex;
+}
+
 .btn-sm {
     width: 16px;
     height: 30px;
