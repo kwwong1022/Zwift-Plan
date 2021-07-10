@@ -114,12 +114,12 @@ hideProfileBtn.addEventListener('click', () => {
 })
 
 // Plan Tool ===============================================================================
+/*
 document.querySelector('#plan-card-0').addEventListener('mouseover', ()=> {
     document.querySelector('#plan-card-0 .edit-card').style.display = "flex";
     document.querySelector('#plan-card-0 .card-info').style.display = "none";
 })
 
-/*
 const newPlanCard = document.querySelector('.plan-card');
 const titleZoneLv = document.querySelector('#title-zone-level');
 const titlePower = document.querySelector('#title-power');

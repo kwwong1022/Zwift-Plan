@@ -168,17 +168,64 @@ let cardInitialize = (planCard) => {
 
         if (isMin) {
             planCard.durationMinute = curr;
-            span.innerText = curr;
+            if (curr < 10) {
+                span.innerText = `0${curr}`;
+            } else {
+                span.innerText = curr;
+            }
         } else {
-            if (curr >= 60) { 
+            if (curr >= 60) {
                 curr = 0;
             }
+
             planCard.durationSecond = curr;
-            span.innerText = curr;
+            if (curr < 10) {
+                span.innerText = `0${curr}`;
+            } else {
+                span.innerText = curr;
+            }
         }
 
         updateCard();
     }
+
+    const btnAddNewPlan = document.querySelector(`#${planCard.id} .btn-add-new-plan`);
+    const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
+    const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
+
+    if (planCard.id === "plan-card-1") {
+        btnAddNewPlan.style.display = "inline";
+        btnEditCardExit.style.display = "none";
+
+        planCard.mode = 0;
+        editCard.style.display = "flex";
+        infoCard.style.display = "none";
+
+    } else {
+        btnAddNewPlan.style.display = "none";
+        btnEditCardExit.style.display = "inline";
+
+        planCard.mode = 1;
+        editCard.style.display = "none";
+        infoCard.style.display = "flex";
+    }
+
+    btnEditCard.addEventListener('click', () => {
+        if (planCard.mode === 1) {
+            planCard.mode = 0;
+            editCard.style.display = "flex";
+            infoCard.style.display = "none";
+        }
+    });
+
+    btnEditCardExit.addEventListener('click', () => {
+        if (planCard.mode === 0) {
+            planCard.mode = 1;
+            editCard.style.display = "none";
+            infoCard.style.display = "flex";
+            updateCard();
+        }
+    });
 
     let updateCard = () => {
         let currPowerPercentage = planCard.power / userFTP;
@@ -241,10 +288,11 @@ let cardInitialize = (planCard) => {
         const cardInfoTSS = document.querySelector(`#${planCard.id} .card-info-tss`);
 
         // TSS = (sec x NP® x IF®)/(FTP x 3600) x 100
-        cardInfoIF.innerText = planCard.power / userFTP;
-        cardInfoTSS.innerText = (planCard.durationMinute*60+planCard.durationSecond)*planCard.power*(planCard.power / userFTP)/(userFTP*3600)*100;
-    
-        
+        let intensityFactor = planCard.power / userFTP;
+        let tss = (planCard.durationMinute * 60 + planCard.durationSecond) * planCard.power * (planCard.power / userFTP) / (userFTP * 3600) * 100;
+
+        cardInfoIF.innerText = intensityFactor.toFixed(2);
+        cardInfoTSS.innerText = Math.floor(tss);
     }
 
     updateCard();
