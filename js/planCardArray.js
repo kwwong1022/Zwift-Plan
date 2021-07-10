@@ -1,15 +1,5 @@
-/*
-let cyclistName = "";
-let authorName = "";
-let userFTP = 200;
-let isFTPNaN = false;
-let userWeight = 75;
-let isWeightNaN = false;
-let metric = "kilogram";
-let profileIsClosed = false;
-*/
-
 const planCardArray = [];
+let cardId = 1;
 
 // plan-card-0
 const planCard0 = {
@@ -226,6 +216,20 @@ let cardInitialize = (planCard) => {
             updateCard();
         }
     });
+
+    btnAddNewPlan.addEventListener('click', () => {
+        let newCard = {
+            id: `plan-card-${cardId}`,
+            mode: 1, // 0-edit, 1-info
+            showAvgPower: planCard.showAvgPower,
+            isFreeride: planCard.isFreeride,
+            power: planCard.power,
+            durationMinute: planCard.durationMinute,
+            durationSecond: durationMinute.durationSecond,
+        };
+        cardId++;
+        planCardArray.push(newCard);
+    })
 
     let updateCard = () => {
         let currPowerPercentage = planCard.power / userFTP;
