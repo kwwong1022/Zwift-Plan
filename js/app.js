@@ -115,7 +115,6 @@ hideProfileBtn.addEventListener('click', () => {
 
 // Plan Tool ===============================================================================
 document.querySelector('#plan-card-0').addEventListener('mouseover', ()=> {
-    console.log("hover");
     document.querySelector('#plan-card-0 .edit-card').style.display = "flex";
     document.querySelector('#plan-card-0 .card-info').style.display = "none";
 })

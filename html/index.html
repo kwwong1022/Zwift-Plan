@@ -127,14 +127,14 @@
                                 <div class="d-flex" style="justify-content: space-between; align-items: center;">
                                     <!-- Workout Title -->
                                     <div class="edit-card-title">
-                                        <span style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                        <span class="title-zone" style="font-size: 1.5rem; font-weight: 510;">ZONE
                                             <span class="title-zone-level">2</span> -
                                             <span class="title-power">200</span>w
                                         </span>
                                     </div>
                                     <div class="edit-card-mode d-flex" style="padding-left: 0rem;">
-                                        <button style="background-color: white; color: grey ;border: none; border-radius: 15px; padding: .3rem .6rem .3rem;">Show Avg Power</button>
-                                        <button style="background-color: white; color: grey ;border: none; border-radius: 15px; padding: .3rem .6rem .3rem; margin-left: .5rem;">Freeride</button>
+                                        <button class="btn-show-avg-power">Show Avg Power</button>
+                                        <button class="btn-is-freeride" style="margin-left: .5rem;">Freeride</button>
                                     </div>
                                 </div>
 
@@ -180,7 +180,7 @@
                                         <button class="duration-min-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="duration-min-minus-sm btn btn-sm btn-sm-r">-</button>
                                         <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span class="power-percentage" style="padding: 0 .4rem 0">00</span>
+                                            <span class="duration-minute" style="padding: 0 .4rem 0">00</span>
                                         </span>
                                         <button class="duration-min-add-sm btn btn-sm btn-sm-l">+</button>
                                         <button class="duration-min-add-l btn btn-sm btn-sm-r">+</button>
@@ -191,7 +191,7 @@
                                         <button class="duration-sec-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="duration-sec-minus-sm btn btn-sm btn-sm-r">-</button>
                                         <span style="font-size: 1.6rem; font-weight: 500;">
-                                            <span class="power-percentage" style="padding: 0 .4rem 0">00</span>
+                                            <span class="duration-second" style="padding: 0 .4rem 0">00</span>
                                         </span>
                                         <button class="duration-sec-add-sm btn btn-sm btn-sm-l">+</button>
                                         <button class="duration-sec-add-l btn btn-sm btn-sm-r">+</button>
@@ -201,9 +201,9 @@
 
                             <div class="card-grid-right" style="width: 10%;">
                                 <!-- Add New card Button-->
-                                <button class="btn-add-new-plan btn btn-b" style=" display: none;">+</button>
+                                <button class="btn-add-new-plan btn btn-b">+</button>
                                 <button class="btn-plan-card-edit-exit btn btn-b"
-                                    style="font-size: 2.3rem; font-weight: 500;">x</button>
+                                    style="font-size: 2.3rem; font-weight: 500; display: none;">x</button>
                             </div>
                         </div>
 
@@ -218,17 +218,17 @@
                             </div>
 
                             <div class="card-grid-b" style="width: 70%">
-                                <span style="font-size: 1.5rem; font-weight: 510;">ZONE
-                                    <span class="title-zone-level">2</span> -
-                                    <span class="title-power">200</span>w&nbsp;&nbsp;&nbsp;
-                                    <span class="title-hr" style="font-weight: 480;">1</span>:<span id="title-min"
-                                        style="font-weight: 480;">30</span>:<span id="title-min"
+                                <span class="card-info-title-zone" style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                    <span class="card-info-title-zone-level">2</span> -
+                                    <span class="card-info-title-power">200</span>w&nbsp;&nbsp;&nbsp;
+                                    <span class="card-info-title-hr" style="font-weight: 480;">1</span>:<span class="card-info-title-min"
+                                        style="font-weight: 480;">30</span>:<span class="card-info-title-sec"
                                         style="font-weight: 480;">00</span>
                                 </span><br>
 
                                 <span style="font-size: 1rem; font-weight: 500;">Intensity Factor :
-                                    <span>0.96</span>&nbsp;&nbsp;&nbsp;TSS :
-                                    <span>150</span>
+                                    <span class="card-info-if">0.96</span>&nbsp;&nbsp;&nbsp;TSS :
+                                    <span class="card-info-tss">150</span>
                                 </span>
                             </div>
 
@@ -290,45 +290,6 @@
                     </div>-->
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
         <div class="side-bar">
@@ -388,7 +349,9 @@
 
     <!-- Custom js script-->
     <script src="../js/app.js"></script>
-    <script src="../js/planTool.js"></script>
+    <!-- <script src="../js/planTool.js"></script>-->
+    
+    <script src="../js/planCardArray.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 

@@ -21,6 +21,21 @@
     display: flex;
 }
 
+.btn-show-avg-power, .btn-is-freeride {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .5); 
+    color: rgb(82, 82, 82); 
+    border:none; border-radius: 15px;
+    padding: .3rem .6rem .3rem;
+}
+
+.card-grid-left .btn-show-avg-power .btn-active, .card-grid-left .btn-is-freeride .btn-active {
+    background-color: rgba(255, 255, 255, 1); 
+    color: grey;
+    border:none; border-radius: 15px;
+    padding: .3rem .6rem .3rem;
+}
+
 .btn-sm {
     width: 16px;
     height: 30px;
