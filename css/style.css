@@ -197,6 +197,8 @@ footer a:hover {
         padding: 0;
         transform: translateY(20);
         transition: 0.2s ease-in;
+
+        z-index: 10;
     }
     .nav-links li {
         opacity: 0;

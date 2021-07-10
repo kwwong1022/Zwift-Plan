@@ -66,7 +66,7 @@
                 <div class="d-flex" style="justify-content: space-between;">
                     <h2>User Profile</h2>
 
-                    <div class="hide-session-btn d-flex" style="padding: .7rem 1rem 0 0;">
+                    <div class="hide-session-btn d-flex" style="padding: .7rem 1rem 0 0; z-index: 1;">
                         <div class="hide-session-l"
                             style="width: 17px; height: 2px; background-color: rgb(77, 77, 77); transform: rotate(45deg); margin: 0 -3px 0;">
                         </div>
@@ -124,19 +124,28 @@
                     <div id="plan-card-0">
                         <div class="edit-card plan-card card" style="display: none;">
                             <div class="card-grid-left" style="width: 90%">
-                                <!-- Workout Title -->
-                                <span style="font-size: 1.5rem; font-weight: 510;">ZONE
-                                    <span class="title-zone-level">2</span> -
-                                    <span class="title-power">200</span>w
-                                </span>
+                                <div class="d-flex" style="justify-content: space-between; align-items: center;">
+                                    <!-- Workout Title -->
+                                    <div class="edit-card-title">
+                                        <span style="font-size: 1.5rem; font-weight: 510;">ZONE
+                                            <span class="title-zone-level">2</span> -
+                                            <span class="title-power">200</span>w
+                                        </span>
+                                    </div>
+                                    <div class="edit-card-mode d-flex" style="padding-left: 0rem;">
+                                        <button style="background-color: white; color: grey ;border: none; border-radius: 15px; padding: .3rem .6rem .3rem;">Show Avg Power</button>
+                                        <button style="background-color: white; color: grey ;border: none; border-radius: 15px; padding: .3rem .6rem .3rem; margin-left: .5rem;">Freeride</button>
+                                    </div>
+                                </div>
 
+                                <!-- Power Edit -->
                                 <div class="power-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
                                     <div class="d-flex">
                                         <span
                                             style="font-size: 1.3rem; font-weight: 500; align-self: center;">Power:</span>
                                     </div>
-
+                                    <!-- Power % -->
                                     <div class="d-flex" style="padding: 0 .8rem 0">
                                         <button class="power-percentage-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="power-percentage-minus-sm btn btn-sm btn-sm-r">-</button>
@@ -147,7 +156,7 @@
                                         <button class="power-percentage-add-sm btn btn-sm btn-sm-l">+</button>
                                         <button class="power-percentage-add-l btn btn-sm btn-sm-r">+</button>
                                     </div>
-
+                                    <!-- Power Watt -->
                                     <div class="d-flex">
                                         <button class="power-watt-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="power-watt-minus-sm btn btn-sm btn-sm-r">-</button>
@@ -159,13 +168,14 @@
                                     </div>
                                 </div>
 
+                                <!-- Duration Edit -->
                                 <div class="duration-edit d-flex" style="align-content: center; justify-content: space-between; padding-top: .4rem; 
                                     padding-right: 1rem;">
                                     <div class="d-flex">
                                         <span
                                             style="font-size: 1.3rem; font-weight: 500; align-self: center;">Duration:</span>
                                     </div>
-
+                                    <!-- Mins -->
                                     <div class="d-flex">
                                         <button class="duration-min-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="duration-min-minus-sm btn btn-sm btn-sm-r">-</button>
@@ -175,9 +185,8 @@
                                         <button class="duration-min-add-sm btn btn-sm btn-sm-l">+</button>
                                         <button class="duration-min-add-l btn btn-sm btn-sm-r">+</button>
                                     </div>
-
                                     <span style="font-size: 1.6rem; font-weight: 500;">:</span>
-
+                                    <!-- Secs -->
                                     <div class="d-flex">
                                         <button class="duration-sec-minus-l btn btn-sm btn-sm-l">-</button>
                                         <button class="duration-sec-minus-sm btn btn-sm btn-sm-r">-</button>
@@ -192,8 +201,9 @@
 
                             <div class="card-grid-right" style="width: 10%;">
                                 <!-- Add New card Button-->
-                                <button class="btn-add-new-plan btn btn-b">+</button>
-                                <button class="btn-plan-card-edit-exit btn btn-b" style="font-size: 2.3rem; font-weight: 500; display: none;">x</button>
+                                <button class="btn-add-new-plan btn btn-b" style=" display: none;">+</button>
+                                <button class="btn-plan-card-edit-exit btn btn-b"
+                                    style="font-size: 2.3rem; font-weight: 500;">x</button>
                             </div>
                         </div>
 
@@ -223,7 +233,8 @@
                             </div>
 
                             <div class="card-grid-c" style="width: 10%; padding-top: .1rem; padding-left: .7rem;">
-                                <img class="btn-plan-card-edit" src="../asset/edit_icon.svg" style="color: white; width: 1.5rem;">
+                                <img class="btn-plan-card-edit" src="../asset/edit_icon.svg"
+                                    style="color: white; width: 1.5rem;">
                             </div>
 
                             <div class="card-grid-d" style="width: 10%;">
