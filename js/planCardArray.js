@@ -13,26 +13,30 @@ const planCard0 = {
 }
 planCardArray.push(planCard0);
 
+// initialize plan card by inserting a planCard object
 let cardInitialize = (planCard) => {
+    // find elements based on #id + .class pattern
+    // edit card title & btns:
     const editCard = document.querySelector(`#${planCard.id} .edit-card`);
     const infoCard = document.querySelector(`#${planCard.id} .card-info`);
     const cardTitleZoneLv = document.querySelector(`#${planCard.id} .title-zone-level`);
     const cardTitlePower = document.querySelector(`#${planCard.id} .title-power`);
     const btnShowAvgPower = document.querySelector(`#${planCard.id} .btn-show-avg-power`);
     const btnIsFreeride = document.querySelector(`#${planCard.id} .btn-is-freeride`);
-
+    // edit card power %:
     const powerPercentage = document.querySelector(`#${planCard.id} .power-percentage`);
     const addPowerPercentageSmall = document.querySelector(`#${planCard.id} .power-percentage-add-sm`);
     const addPowerPercentageLarge = document.querySelector(`#${planCard.id} .power-percentage-add-l`);
     const minusPowerPercentageSmall = document.querySelector(`#${planCard.id} .power-percentage-minus-sm`);
     const minusPowerPercentageLarge = document.querySelector(`#${planCard.id} .power-percentage-minus-l`);
-
+    // edit card watt:
     const powerWatt = document.querySelector(`#${planCard.id} .power-watt`);
     const addPowerWattSmall = document.querySelector(`#${planCard.id} .power-watt-add-sm`);
     const addPowerWattLarge = document.querySelector(`#${planCard.id} .power-watt-add-l`);
     const minusPowerWattSmall = document.querySelector(`#${planCard.id} .power-watt-minus-sm`);
     const minusPowerWattLarge = document.querySelector(`#${planCard.id} .power-watt-minus-l`);
 
+    // btn-show-avg-power
     btnShowAvgPower.addEventListener('click', () => {
         if (!planCard.showAvgPower) {
             planCard.showAvgPower = true;
@@ -46,6 +50,8 @@ let cardInitialize = (planCard) => {
             console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
         }
     })
+
+    // btn-is-freeride
     btnIsFreeride.addEventListener('click', () => {
         if (!planCard.isFreeride) {
             planCard.isFreeride = true;
@@ -108,6 +114,7 @@ let cardInitialize = (planCard) => {
         updateCard();
     }
 
+    // edit card duration:
     const durationMinute = document.querySelector(`#${planCard.id} .duration-minute`);
     const addDurationMinuteSmall = document.querySelector(`#${planCard.id} .duration-min-add-sm`);
     const addDurationMinuteLarge = document.querySelector(`#${planCard.id} .duration-min-add-l`);
@@ -189,12 +196,14 @@ let cardInitialize = (planCard) => {
         updateCard();
     }
 
+    // plan card modes: 0-edit, 1-info
     const btnAddNewPlan = document.querySelector(`#${planCard.id} .btn-add-new-plan`);
     const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
     const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
 
     const workoutPlanSession = document.querySelector("#workout-plan-session .d-flex");
 
+    // only first plan card have "add plan card btn" displayed
     if (planCard.id === "plan-card-0") {
         btnAddNewPlan.style.display = "inline";
         btnEditCardExit.style.display = "none";
@@ -204,6 +213,7 @@ let cardInitialize = (planCard) => {
         infoCard.style.display = "none";
 
     } else {
+        // for the rest of plan cards in the array (#workout-plan-session)
         btnAddNewPlan.style.display = "none";
         btnEditCardExit.style.display = "inline";
 
@@ -229,7 +239,9 @@ let cardInitialize = (planCard) => {
         }
     });
 
+    // adding new card to workout plan session
     btnAddNewPlan.addEventListener('click', () => {
+        // new plan card object based on inserted data
         let newCard = {
             id: `plan-card-${cardId}`,
             mode: 1, // 0-edit, 1-info
@@ -240,6 +252,7 @@ let cardInitialize = (planCard) => {
             durationSecond: planCard.durationSecond,
         };
 
+        // input validation
         if (planCard.power <= 0 || typeof planCard.power === "undefined") {
             alert("Invalid power input, please try again.");
 
@@ -247,8 +260,10 @@ let cardInitialize = (planCard) => {
             alert("Invalid duration input, please try again.");
 
         } else {
+            // adding new plan card object to the array
             planCardArray.push(newCard);
 
+            // create new element with new id and append it to workout plan seession
             let newCardElement = document.createElement("div");
             newCardElement.id = `plan-card-${cardId}`;
             newCardElement.style.paddingTop = ".5rem";
@@ -258,10 +273,13 @@ let cardInitialize = (planCard) => {
 
             workoutPlanSession.appendChild(newCardElement);
             cardInitialize(planCardArray[cardId]);
+
+            // update id no.
             cardId++;
         }
     })
 
+    // oncardchange -> sync card data
     let updateCard = () => {
         const cardInfoTitleZoneLv = document.querySelector(`#${planCard.id} .card-info-title-zone-level`);
         const cardInfoTitlePower = document.querySelector(`#${planCard.id} .card-info-title-power`);
@@ -331,6 +349,7 @@ let cardInitialize = (planCard) => {
         cardInfoTSS.innerText = Math.floor(tss);
     }
 
+    // syncing plan card obj & plan card element
     updateCard();
 }
 
