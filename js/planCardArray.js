@@ -120,6 +120,7 @@ let cardInitialize = (planCard) => {
     const minusDurationSecondSmall = document.querySelector(`#${planCard.id} .duration-sec-minus-sm`);
     const minusDurationSecondLarge = document.querySelector(`#${planCard.id} .duration-sec-minus-l`);
 
+    planCard.durationMinute = 0;
     if (planCard.durationMinute < 10) {
         durationMinute.innerText = `0${planCard.durationMinute}`;
     }
@@ -136,6 +137,7 @@ let cardInitialize = (planCard) => {
         processDurationData(true, durationMinute, -5);
     })
 
+    planCard.durationSecond = 0;
     if (planCard.durationSecond < 10) {
         durationSecond.innerText = `0${planCard.durationSecond}`;
     }
@@ -157,23 +159,33 @@ let cardInitialize = (planCard) => {
         curr += amount;
 
         if (isMin) {
-            planCard.durationMinute = curr;
             if (curr < 10) {
-                span.innerText = `0${curr}`;
+                if (curr < 0) {
+                    curr = 0;
+                } else {
+                    span.innerText = `0${curr}`;
+                }
             } else {
                 span.innerText = curr;
             }
+
+            planCard.durationMinute = curr;
         } else {
             if (curr >= 60) {
                 curr = 0;
             }
 
-            planCard.durationSecond = curr;
             if (curr < 10) {
-                span.innerText = `0${curr}`;
+                if (curr < 0) {
+                    curr = 0;
+                } else {
+                    span.innerText = `0${curr}`;
+                }
             } else {
                 span.innerText = curr;
             }
+
+            planCard.durationSecond = curr;
         }
 
         updateCard();
@@ -183,7 +195,9 @@ let cardInitialize = (planCard) => {
     const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
     const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
 
-    if (planCard.id === "plan-card-1") {
+    const workoutPlanSession = document.querySelector("#workout-plan-session .d-flex");
+
+    if (planCard.id === "plan-card-0") {
         btnAddNewPlan.style.display = "inline";
         btnEditCardExit.style.display = "none";
 
@@ -227,8 +241,25 @@ let cardInitialize = (planCard) => {
             durationMinute: planCard.durationMinute,
             durationSecond: durationMinute.durationSecond,
         };
-        cardId++;
-        planCardArray.push(newCard);
+
+        if (planCard.power <= 0 || typeof planCard.power === "undefined") {
+            alert("Invalid power input, please try again.");
+        } else if (planCard.durationMinute <= 0 && planCard.durationSecond <= 0 || typeof planCard.durationMinute === "undefined" || typeof planCard.durationSecond === "undefined") {
+            alert("Invalid duration input, please try again.");
+        } else {
+            planCardArray.push(newCard);
+
+            let newCardElement = document.createElement("div");
+            newCardElement.id = `plan-card-${cardId}`;
+            let oldChild = document.querySelector("#plan-card-0").innerHTML;
+            newCardElement.innerHTML = oldChild;
+
+            workoutPlanSession.appendChild(newCardElement);
+            cardInitialize(planCardArray[cardId]);
+            cardId++;
+        }
+
+
     })
 
     let updateCard = () => {
