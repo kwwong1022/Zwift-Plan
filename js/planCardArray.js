@@ -240,8 +240,6 @@ let cardInitialize = (planCard) => {
             durationSecond: planCard.durationSecond,
         };
 
-        console.dir(newCard);
-
         if (planCard.power <= 0 || typeof planCard.power === "undefined") {
             alert("Invalid power input, please try again.");
 
@@ -306,7 +304,6 @@ let cardInitialize = (planCard) => {
         let hour = Math.floor(planCard.durationMinute / 60);
         let min = Math.floor(planCard.durationMinute % 60);
         let sec = Math.floor(planCard.durationSecond);
-        console.log(`hr: ${hour}, min: ${min}, sec: ${sec}`);
 
         cardInfoTitleZoneLv.innerText = currZone;
         cardInfoTitlePower.innerText = planCard.power;
@@ -322,7 +319,6 @@ let cardInitialize = (planCard) => {
         } else {
             cardInfoTitleSec.innerText = sec;
         }
-        console.log(`hr: ${cardInfoTitleHr.innerText}, min: ${cardInfoTitleMin.innerText}, sec: ${cardInfoTitleSec.innerText}`);
 
         const cardInfoIF = document.querySelector(`#${planCard.id} .card-info-if`);
         const cardInfoTSS = document.querySelector(`#${planCard.id} .card-info-tss`);
