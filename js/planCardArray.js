@@ -230,8 +230,6 @@ let cardInitialize = (planCard) => {
     });
 
     btnAddNewPlan.addEventListener('click', () => {
-
-
         let newCard = {
             id: `plan-card-${cardId}`,
             mode: 1, // 0-edit, 1-info
@@ -246,13 +244,16 @@ let cardInitialize = (planCard) => {
 
         if (planCard.power <= 0 || typeof planCard.power === "undefined") {
             alert("Invalid power input, please try again.");
+
         } else if (planCard.durationMinute <= 0 && planCard.durationSecond <= 0 || typeof planCard.durationMinute === "undefined" || typeof planCard.durationSecond === "undefined") {
             alert("Invalid duration input, please try again.");
+
         } else {
             planCardArray.push(newCard);
 
             let newCardElement = document.createElement("div");
             newCardElement.id = `plan-card-${cardId}`;
+
             let oldChild = document.querySelector("#plan-card-0").innerHTML;
             newCardElement.innerHTML = oldChild;
 
