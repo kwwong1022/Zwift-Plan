@@ -8,7 +8,7 @@ const planCard0 = {
     showAvgPower: false,
     isFreeride: false,
     power: 160,
-    durationMinute: 30,
+    durationMinute: 0,
     durationSecond: 0,
 }
 planCardArray.push(planCard0);
@@ -120,7 +120,6 @@ let cardInitialize = (planCard) => {
     const minusDurationSecondSmall = document.querySelector(`#${planCard.id} .duration-sec-minus-sm`);
     const minusDurationSecondLarge = document.querySelector(`#${planCard.id} .duration-sec-minus-l`);
 
-    planCard.durationMinute = 0;
     if (planCard.durationMinute < 10) {
         durationMinute.innerText = `0${planCard.durationMinute}`;
     }
@@ -137,7 +136,6 @@ let cardInitialize = (planCard) => {
         processDurationData(true, durationMinute, -5);
     })
 
-    planCard.durationSecond = 0;
     if (planCard.durationSecond < 10) {
         durationSecond.innerText = `0${planCard.durationSecond}`;
     }
@@ -232,6 +230,8 @@ let cardInitialize = (planCard) => {
     });
 
     btnAddNewPlan.addEventListener('click', () => {
+
+
         let newCard = {
             id: `plan-card-${cardId}`,
             mode: 1, // 0-edit, 1-info
@@ -239,8 +239,10 @@ let cardInitialize = (planCard) => {
             isFreeride: planCard.isFreeride,
             power: planCard.power,
             durationMinute: planCard.durationMinute,
-            durationSecond: durationMinute.durationSecond,
+            durationSecond: planCard.durationSecond,
         };
+
+        console.dir(newCard);
 
         if (planCard.power <= 0 || typeof planCard.power === "undefined") {
             alert("Invalid power input, please try again.");
@@ -258,11 +260,15 @@ let cardInitialize = (planCard) => {
             cardInitialize(planCardArray[cardId]);
             cardId++;
         }
-
-
     })
 
     let updateCard = () => {
+        const cardInfoTitleZoneLv = document.querySelector(`#${planCard.id} .card-info-title-zone-level`);
+        const cardInfoTitlePower = document.querySelector(`#${planCard.id} .card-info-title-power`);
+        const cardInfoTitleHr = document.querySelector(`#${planCard.id} .card-info-title-hr`);
+        const cardInfoTitleMin = document.querySelector(`#${planCard.id} .card-info-title-min`);
+        const cardInfoTitleSec = document.querySelector(`#${planCard.id} .card-info-title-sec`);
+
         let currPowerPercentage = planCard.power / userFTP;
         let currZone = "";
         let currBgColor = "";
@@ -295,19 +301,15 @@ let cardInitialize = (planCard) => {
         infoCard.style.backgroundColor = currBgColor;
         editCard.style.backgroundColor = currBgColor;
 
-        const cardInfoTitleZoneLv = document.querySelector(`#${planCard.id} .card-info-title-zone-level`);
-        const cardInfoTitlePower = document.querySelector(`#${planCard.id} .card-info-title-power`);
-        const cardInfoTitleHr = document.querySelector(`#${planCard.id} .card-info-title-hr`);
-        const cardInfoTitleMin = document.querySelector(`#${planCard.id} .card-info-title-min`);
-        const cardInfoTitleSec = document.querySelector(`#${planCard.id} .card-info-title-sec`);
-
         let hour = Math.floor(planCard.durationMinute / 60);
         let min = Math.floor(planCard.durationMinute % 60);
         let sec = Math.floor(planCard.durationSecond);
+        console.log(`hr: ${hour}, min: ${min}, sec: ${sec}`);
 
         cardInfoTitleZoneLv.innerText = currZone;
         cardInfoTitlePower.innerText = planCard.power;
         cardInfoTitleHr.innerText = hour;
+
         if (min < 10) {
             cardInfoTitleMin.innerText = `0${min}`;
         } else {
@@ -318,6 +320,7 @@ let cardInitialize = (planCard) => {
         } else {
             cardInfoTitleSec.innerText = sec;
         }
+        console.log(`hr: ${cardInfoTitleHr.innerText}, min: ${cardInfoTitleMin.innerText}, sec: ${cardInfoTitleSec.innerText}`);
 
         const cardInfoIF = document.querySelector(`#${planCard.id} .card-info-if`);
         const cardInfoTSS = document.querySelector(`#${planCard.id} .card-info-tss`);
