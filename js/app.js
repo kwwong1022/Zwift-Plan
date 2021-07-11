@@ -44,7 +44,9 @@ let userWeight = 75;
 let isWeightNaN = false;
 let metric = "kilogram";
 let profileIsClosed = false;
-
+let hasCD = false;
+let hasWM = false;
+let CDPowerHigh,CDPowerLow,WMPowerHigh,WMPowerLow,WMDuration,CDDuration;
 document.querySelector('#cyclist-name').addEventListener('change', () => {
     cyclistName = document.querySelector('#cyclist-name').value;
 });
