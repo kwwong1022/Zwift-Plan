@@ -253,6 +253,7 @@ let cardInitialize = (planCard) => {
 
             let newCardElement = document.createElement("div");
             newCardElement.id = `plan-card-${cardId}`;
+            newCardElement.style.paddingTop = ".5rem";
 
             let oldChild = document.querySelector("#plan-card-0").innerHTML;
             newCardElement.innerHTML = oldChild;
