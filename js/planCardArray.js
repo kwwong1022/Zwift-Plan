@@ -349,8 +349,25 @@ let cardInitialize = (planCard) => {
         cardInfoTSS.innerText = Math.floor(tss);
     }
 
+    
     // syncing plan card obj & plan card element
     updateCard();
 }
+
+let spliceCard = CId => {
+    planCardArray.splice[CId,1];
+}
+
+//only use when array is not sorted or have empty element in it even after splice
+let resortCardArray = () => {
+    planCardArray.forEach(function(item) {
+        if (typeof planCardArray[item] == 'undefined' && planCardArray[item] == null) {
+            for (let index = item+1; index < planCardArray.length; index++) {
+                planCardArray[index-1] = planCardArray[index];
+            }
+        }
+    });
+}
+
 
 cardInitialize(planCardArray[0]);
