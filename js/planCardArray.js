@@ -7,8 +7,8 @@ const planCard0 = {
     mode: 0, // 0-edit, 1-info
     showAvgPower: false,
     isFreeride: false,
-    power: 160,
-    durationMinute: 0,
+    power: userFTP * 0.6,
+    durationMinute: 30,
     durationSecond: 0,
 }
 planCardArray.push(planCard0);
@@ -38,26 +38,16 @@ let cardInitialize = (planCard) => {
 
     // btn-show-avg-power
     btnShowAvgPower.addEventListener('click', () => {
-        if (!planCard.showAvgPower) {
-            planCard.showAvgPower = true;
-            console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
-        } else {
-            planCard.showAvgPower = false;
-            console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
-        }
+        planCard.showAvgPower = !planCard.showAvgPower ? true : false;
+        console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
 
         updateCard();
     })
 
     // btn-is-freeride
     btnIsFreeride.addEventListener('click', () => {
-        if (!planCard.isFreeride) {
-            planCard.isFreeride = true;
-            console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
-        } else {
-            planCard.isFreeride = false;
-            console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
-        }
+        planCard.isFreeride = !planCard.isFreeride ? true : false;
+        console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
 
         updateCard();
     })
@@ -120,9 +110,8 @@ let cardInitialize = (planCard) => {
     const minusDurationSecondSmall = document.querySelector(`#${planCard.id} .duration-sec-minus-sm`);
     const minusDurationSecondLarge = document.querySelector(`#${planCard.id} .duration-sec-minus-l`);
 
-    if (planCard.durationMinute < 10) {
-        durationMinute.innerText = `0${planCard.durationMinute}`;
-    }
+    durationMinute.innerText = planCard.durationMinute < 10 ? `0${planCard.durationMinute}` : planCard.durationMinute;
+
     addDurationMinuteSmall.addEventListener('click', () => {
         processDurationData(true, durationMinute, 1);
     })
@@ -136,9 +125,8 @@ let cardInitialize = (planCard) => {
         processDurationData(true, durationMinute, -5);
     })
 
-    if (planCard.durationSecond < 10) {
-        durationSecond.innerText = `0${planCard.durationSecond}`;
-    }
+    durationSecond.innerText = planCard.durationSecond < 10 ? `0${planCard.durationSecond}` : planCard.durationSecond;
+
     addDurationSecondSmall.addEventListener('click', () => {
         processDurationData(false, durationSecond, 1);
     })
@@ -157,33 +145,14 @@ let cardInitialize = (planCard) => {
         curr += amount;
 
         if (isMin) {
-            if (curr < 10) {
-                if (curr < 0) {
-                    curr = 0;
-                } else {
-                    span.innerText = `0${curr}`;
-                }
-            } else {
-                span.innerText = curr;
-            }
-
+            curr = curr < 0 ? 0 : curr;
             planCard.durationMinute = curr;
+            span.innerText = curr < 10 ? `0${curr}` : curr;
         } else {
-            if (curr >= 60) {
-                curr = 0;
-            }
-
-            if (curr < 10) {
-                if (curr < 0) {
-                    curr = 0;
-                } else {
-                    span.innerText = `0${curr}`;
-                }
-            } else {
-                span.innerText = curr;
-            }
-
+            curr = curr >= 60 ? 0 : curr;
+            curr = curr < 0 ? 0 : curr;
             planCard.durationSecond = curr;
+            span.innerText = curr < 10 ? `0${curr}` : curr;
         }
 
         updateCard();
@@ -193,21 +162,21 @@ let cardInitialize = (planCard) => {
     const btnAddNewPlan = document.querySelector(`#${planCard.id} .btn-add-new-plan`);
     const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
     const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
+    const svgEditCardDefault = document.querySelector(`#${planCard.id} .btn-plan-card-edit-default`);
+    const svgEditCardHover = document.querySelector(`#${planCard.id} .btn-plan-card-edit-hover`);
 
     // only first plan card have "add plan card btn" displayed
     if (planCard.id === "plan-card-0") {
+        planCard.mode = 0;
         btnAddNewPlan.style.display = "inline";
         btnEditCardExit.style.display = "none";
-
-        planCard.mode = 0;
         editCard.style.display = "flex";
         infoCard.style.display = "none";
     } else {
         // for the rest of plan cards in the array (#workout-plan-session)
+        planCard.mode = 1;
         btnAddNewPlan.style.display = "none";
         btnEditCardExit.style.display = "inline";
-
-        planCard.mode = 1;
         editCard.style.display = "none";
         infoCard.style.display = "flex";
     }
@@ -245,10 +214,8 @@ let cardInitialize = (planCard) => {
         // input validation
         if (planCard.power <= 0 || typeof planCard.power === "undefined") {
             alert("Invalid power input, please try again.");
-
         } else if (planCard.durationMinute <= 0 && planCard.durationSecond <= 0 || typeof planCard.durationMinute === "undefined" || typeof planCard.durationSecond === "undefined") {
             alert("Invalid duration input, please try again.");
-
         } else {
             // adding new plan card object to the array
             planCardArray.push(newCard);
@@ -311,7 +278,7 @@ let cardInitialize = (planCard) => {
 
         for (let i = 1; i < planCardArray.length; i++) {
             // if curr plan is not in the last place
-            if (planCard.id === planCardArray[i].id && i !== planCardArray.length-1) {
+            if (planCard.id === planCardArray[i].id && i !== planCardArray.length - 1) {
                 console.log(`item ${planCard.id} found.`);
                 currIndex = i;
                 currPlanCard = {
@@ -467,9 +434,6 @@ let updatePlanCardArray = () => {
         // create new element with new id and append it to workout plan seession
         let newCardElement = document.createElement("div");
         newCardElement.id = planCardArray[i].id;
-        console.dir("=============");
-        console.dir(planCardArray);
-        console.dir(planCardArray[i].id);
         newCardElement.style.paddingTop = ".5rem";
 
         let oldChild = document.querySelector("#plan-card-0").innerHTML;
