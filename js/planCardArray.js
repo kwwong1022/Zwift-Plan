@@ -305,6 +305,35 @@ let cardInitialize = (planCard) => {
         updatePlanCardArray();
     });
 
+    btnPlanCardShiftDown.addEventListener('click', () => {
+        console.log(`${planCard.id} shift down function called.`);
+        let currPlanCard, currIndex;
+
+        for (let i = 1; i < planCardArray.length; i++) {
+            // if curr plan is not in the last place
+            if (planCard.id === planCardArray[i].id && i !== planCardArray.length-1) {
+                console.log(`item ${planCard.id} found.`);
+                currIndex = i;
+                currPlanCard = {
+                    id: planCardArray[i].id,
+                    mode: planCardArray[i].mode, // 0-edit, 1-info
+                    showAvgPower: planCardArray[i].showAvgPower,
+                    isFreeride: planCardArray[i].isFreeride,
+                    power: planCardArray[i].power,
+                    durationMinute: planCardArray[i].durationMinute,
+                    durationSecond: planCardArray[i].durationSecond,
+                };
+                planCardArray.splice(i, 1);
+            }
+        }
+
+        if (typeof currPlanCard !== "undefined") {
+            planCardArray.splice(currIndex + 1, 0, currPlanCard);
+        }
+
+        updatePlanCardArray();
+    });
+
     // oncardchange -> sync card data
     let updateCard = () => {
         const cardInfoTitleZoneLv = document.querySelector(`#${planCard.id} .card-info-title-zone-level`);
