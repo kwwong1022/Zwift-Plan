@@ -79,33 +79,35 @@
                 <div id="user-info">
                     <!-- Name -->
                     <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem .2rem;">
-                        <div style="width: 50%; display: flex; justify-content: space-between;">
-                            <label for="cyclist-name" style="width: 30%;">Cyclist: </label>
-                            <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 70%;">
+                        <div style="width: 50%; display: inline; padding-right: 1rem;">
+                            <label for="cyclist-name" style="width: 30%; padding-right: .5rem;">Cyclist: </label><br>
+                            <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
-                        <div style="width: 50%; display: flex; justify-content: space-between; padding-left: .5rem;">
-                            <label for="author-name" style="width: 30%;">Author: </label>
-                            <input id="author-name" type="text" placeholder="Author Name" style="width: 70%;">
+                        <div style="width: 50%; display: inline; padding-left: 1rem;">
+                            <label for="author-name" style="width: 30%; padding-right: .5rem;">Author: </label><br>
+                            <input id="author-name" type="text" placeholder="Author Name" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
                     </div>
 
-                    <div class="d-flex" style="justify-content: space-between; margin: .7rem .08rem 0rem;">
+                    <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem 0rem;">
                         <!-- FTP -->
-                        <div style="width: 30%; display: flex; justify-content: space-between;">
-                            <label for="cyclist-ftp" style="width: 50%;">FTP: </label>
-                            <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 50%;">
+                        <div style="width: 30%; display: inline;">
+                            <label for="cyclist-ftp" style="width: 50%; padding-right: 1rem;">FTP: </label><br>
+                            <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
-
                         <!-- Weight -->
-                        <div style="width: 30%; display: flex; justify-content: space-between;">
-                            <label for="cyclist-weight" style="width: 50%;">Weight: </label>
-                            <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 50%;">
+                        <div style="width: 30%; display: inline;">
+                            <label for="cyclist-weight" style="width: 50%; padding-right: 1rem;">Weight: </label><br>
+                            <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
-
                         <!-- Metric -->
-                        <div style="width: 30%; display: flex; justify-content: space-between;">
-                            <label for="metric" style="width: 50%;">Metric: </label>
-                            <input id="metric" type="text" placeholder="Kg" style="width: 50%;">
+                        <div style="width: 30%; display: inline;">
+                            <label for="metric" style="width: 50%; padding-right: 1rem;">Metric: </label><br>
+
+                            <select id="metric" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
+                                <option value="kilogram">Kilogram</option>
+                                <option value="pound">Pound</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -201,16 +203,19 @@
 
                             <div class="card-grid-right"
                                 style="width: 10%; display: flex; justify-content: center; padding-top: .2rem;">
-                                <!-- Add New card Button-->
-                                <img class="btn-add-new-plan" src="../asset/add_icon.svg"
+                                <!-- Add New Card Button-->
+                                <div style="padding: 1.6rem 0.3rem 0 .9rem;">
+                                    <img class="btn-add-new-plan" src="../asset/add_icon.svg"
                                     style="width: 1.8rem; cursor: pointer;">
-                                <div style="padding: 0 0 4.8rem 1rem;">
+                                </div>
+                                <div style="padding: 0 0 4.8rem .6rem;">
                                     <img class="btn-plan-card-edit-exit" src="../asset/trash_icon.svg"
                                         style="width: 1.5rem; cursor: pointer;">
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Shift Order Button -->
                         <div class="card-info plan-card card d-flex">
                             <div class="card-grid-a" style="width: 10%;">
                                 <div style="display: flex; flex-direction: column; justify-content: space-evenly;">

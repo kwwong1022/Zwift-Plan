@@ -36,27 +36,34 @@ welcomeBtn.addEventListener('click', () => {
 })
 
 // User Profile ===============================================================================
-let cyclistName = "";
-let authorName = "";
-let userFTP = 200;
+let cyclistName = "unknown";
+let authorName = "unknown";
+let userFTP = 150;
 let isFTPNaN = false;
-let userWeight = 75;
+let userWeight = 60;
 let isWeightNaN = false;
 let metric = "kilogram";
 let profileIsClosed = false;
 let hasCD = false;
 let hasWM = false;
 let CDPowerHigh,CDPowerLow,WMPowerHigh,WMPowerLow,WMDuration,CDDuration;
+
 document.querySelector('#cyclist-name').addEventListener('change', () => {
     cyclistName = document.querySelector('#cyclist-name').value;
+    cardInitializeAll();
 });
+
 document.querySelector('#author-name').addEventListener('change', () => {
     authorName = document.querySelector('#author-name').value;
+    cardInitializeAll();
 });
+
 document.querySelector('#metric').addEventListener('change', () => {
     metric = document.querySelector('#metric').value;
     console.log(metric);
+    cardInitializeAll();
 });
+
 document.querySelector('#cyclist-ftp').addEventListener('change', () => {
     if (isNaN(document.querySelector('#cyclist-ftp').value)) {
         isFTPNaN = true;
@@ -68,7 +75,9 @@ document.querySelector('#cyclist-ftp').addEventListener('change', () => {
         userFTP = document.querySelector('#cyclist-ftp').value;
         console.log(`FTP: ${userFTP}`);
     }
+    cardInitializeAll();
 });
+
 document.querySelector('#cyclist-weight').addEventListener('change', () => {
     if (isNaN(document.querySelector('#cyclist-weight').value)) {
         isWeightNaN = true;
@@ -84,6 +93,7 @@ document.querySelector('#cyclist-weight').addEventListener('change', () => {
             userWeight = document.querySelector('#cyclist-weight').value/2.205;
             console.log(`Weight: ${userWeight}`);
         }
+        cardInitializeAll();
     }
 });
 
@@ -114,95 +124,3 @@ hideProfileBtn.addEventListener('click', () => {
         profileIsClosed = true;
     }
 })
-
-// Plan Tool ===============================================================================
-/*
-document.querySelector('#plan-card-0').addEventListener('mouseover', ()=> {
-    document.querySelector('#plan-card-0 .edit-card').style.display = "flex";
-    document.querySelector('#plan-card-0 .card-info').style.display = "none";
-})
-
-const newPlanCard = document.querySelector('.plan-card');
-const titleZoneLv = document.querySelector('#title-zone-level');
-const titlePower = document.querySelector('#title-power');
-
-const newPowerPercentage = document.querySelector('#power-percentage');
-const addPowerPercentageSmall = document.querySelector('#power-percentage-add-sm');
-const addPowerPercentageLarge = document.querySelector('#power-percentage-add-l');
-const minusPowerPercentageSmall = document.querySelector('#power-percentage-minus-sm');
-const minusPowerPercentageLarge = document.querySelector('#power-percentage-minus-l');
-
-const newPowerWatt = document.querySelector('#power-watt');
-const addPowerWattSmall = document.querySelector('#power-watt-add-sm');
-const addPowerWattLarge = document.querySelector('#power-watt-add-l');
-const minusPowerWattSmall = document.querySelector('#power-watt-minus-sm');
-const minusPowerWattLarge = document.querySelector('#power-watt-minus-l');
-
-addPowerPercentageSmall.addEventListener('click', () => {
-    let currPer = parseInt(newPowerPercentage.innerText);
-    currPer += 1;
-    newPowerPercentage.innerText = currPer;
-    updatePower();
-    updateAddCardTitle();
-})
-addPowerPercentageLarge.addEventListener('click', () => {
-})
-minusPowerPercentageSmall.addEventListener('click', () => {
-})
-minusPowerPercentageLarge.addEventListener('click', () => {
-})
-addPowerWattSmall.addEventListener('click', () => {
-})
-addPowerWattLarge.addEventListener('click', () => {
-})
-minusPowerWattSmall.addEventListener('click', () => {
-})
-minusPowerWattLarge.addEventListener('click', () => {
-})
-
-let updatePower = () => {
-    let currPer = parseInt(newPowerPercentage.innerText) / 100;
-    let currPow = Math.floor(userFTP * currPer);
-    newPowerWatt.innerText = currPow;
-}
-
-let updatePercentage = () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    let currPer = Math.floor(currPow / userFTP * 100);
-    newPowerPercentage.innerText = currPer;
-}
-
-let updateAddCardTitle = () => {
-    let currPow = parseInt(newPowerWatt.innerText);
-    let currZone = "";
-    let currBgColor = "";
-    let currZonePow = currPow / userFTP;
-
-    if (currZonePow < 0.56) {
-        currZone = "1"
-        currBgColor = "rgb(141, 141, 141)";
-    } else if (currZonePow >= 0.56 && currZonePow < 0.76) {
-        currZone = "2"
-        currBgColor = "rgb(59, 179, 248)";
-    } else if (currZonePow >= 0.76 && currZonePow < 0.88) {
-        currZone = "3"
-        currBgColor = "rgb(46, 196, 71)";
-    } else if (currZonePow >= 0.88 && currZonePow < 0.95) {
-        currZone = "4"
-        currBgColor = "rgb(252, 132, 53)";
-    } else if (currZonePow >= 0.95 && currZonePow < 1.05) {
-        currZone = "5"
-        currBgColor = "rgb(233, 203, 68)";
-    } else if (currZonePow >= 1.05 && currZonePow < 1.55) {
-        currZone = "6"
-        currBgColor = "rgb(233, 68, 68)";
-    } else {
-        currZone = "7"
-        currBgColor = "rgb(170, 35, 159)";
-    }
-
-    titleZoneLv.innerText = currZone;
-    titlePower.innerText = newPowerWatt.innerText;
-    newPlanCard.style.backgroundColor = currBgColor;
-}
-*/

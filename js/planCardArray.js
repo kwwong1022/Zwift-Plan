@@ -444,4 +444,10 @@ let updatePlanCardArray = () => {
     }
 }
 
+let cardInitializeAll = ()=> {
+    planCardArray.forEach((element)=> {
+        cardInitialize(element);
+    });
+}
+
 cardInitialize(planCardArray[0]);
