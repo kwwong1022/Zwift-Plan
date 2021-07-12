@@ -62,13 +62,24 @@
     color: grey;
 }
 
-.btn-add-new-plan, .btn-plan-card-edit-exit {     
-    font-size: 3rem; 
-    width: 60px; 
-    height: 60px;                 
-    border-radius: 50%; 
-    border: none; 
-    padding-right: 1.4rem;
+.btn-plan-card-edit, .btn-add-new-plan, .btn-plan-card-edit-exit, .btn-show-avg-power, .btn-is-freeride, .btn-plan-card-clear {
+    transition: 0.3ms ease-in;
+}
+.btn-plan-card-edit:hover, .btn-add-new-plan:hover, .btn-plan-card-edit-exit:hover, .btn-plan-card-edit-exit:hover, .btn-show-avg-power:hover, .btn-is-freeride:hover, .btn-plan-card-clear:hover {
+    transform: scale(1.2);
+    transition: 0.2ms ease-in;
+}
+.btn-plan-card-edit:active, .btn-add-new-plan:active, .btn-plan-card-edit-exit:active, .btn-plan-card-edit-exit:active, .btn-show-avg-power:active, .btn-is-freeride:active, .btn-plan-card-clear:active {
+    transform: scale(0.9);
+    transition: 0.2ms ease-in;
+}
+.btn-show-avg-power:hover, .btn-is-freeride:hover {
+    transform: scale(1.1);
+    transition: 0.2ms ease-in;
+}
+.btn-show-avg-power:active, .btn-is-freeride:active {
+    transform: scale(0.9);
+    transition: 0.2ms ease-in;
 }
 
 .btn:hover {
