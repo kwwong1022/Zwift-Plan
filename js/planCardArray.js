@@ -40,31 +40,23 @@ let cardInitialize = (planCard) => {
     btnShowAvgPower.addEventListener('click', () => {
         if (!planCard.showAvgPower) {
             planCard.showAvgPower = true;
-            btnShowAvgPower.style.backgroundColor = "rgba(255, 255, 255, 1)";
-            btnShowAvgPower.style.color = "grey";
             console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
         } else {
             planCard.showAvgPower = false;
-            btnShowAvgPower.style.backgroundColor = "rgba(255, 255, 255, .5)";
-            btnShowAvgPower.style.color = "rgb(82, 82, 82)";
             console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
         }
+
+        updateCard();
     })
 
     // btn-is-freeride
     btnIsFreeride.addEventListener('click', () => {
         if (!planCard.isFreeride) {
             planCard.isFreeride = true;
-            btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, 1)";
-            btnIsFreeride.style.color = "grey";
             console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
-
         } else {
             planCard.isFreeride = false;
-            btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, .5)";
-            btnIsFreeride.style.color = "rgb(82, 82, 82)";
             console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
-
         }
 
         updateCard();
@@ -202,8 +194,6 @@ let cardInitialize = (planCard) => {
     const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
     const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
 
-    const workoutPlanSession = document.querySelector("#workout-plan-session .d-flex");
-
     // only first plan card have "add plan card btn" displayed
     if (planCard.id === "plan-card-0") {
         btnAddNewPlan.style.display = "inline";
@@ -212,7 +202,6 @@ let cardInitialize = (planCard) => {
         planCard.mode = 0;
         editCard.style.display = "flex";
         infoCard.style.display = "none";
-
     } else {
         // for the rest of plan cards in the array (#workout-plan-session)
         btnAddNewPlan.style.display = "none";
@@ -263,25 +252,55 @@ let cardInitialize = (planCard) => {
         } else {
             // adding new plan card object to the array
             planCardArray.push(newCard);
-
             // create new element with new id and append it to workout plan seession
             updatePlanCardArray();
-
             // update id no.
             cardId++;
         }
     })
 
-    // plan card delete button
+    // plan card delete & Ordering
     const btnPlanCardClear = document.querySelector(`#${planCard.id} .btn-plan-card-clear`);
-    btnPlanCardClear.addEventListener('click', ()=> {
-        planCardArray.forEach((element, index)=> {
+    const btnPlanCardShiftUp = document.querySelector(`#${planCard.id} .btn-plan-card-shift-up`);
+    const btnPlanCardShiftDown = document.querySelector(`#${planCard.id} .btn-plan-card-shift-down`);
+
+    btnPlanCardClear.addEventListener('click', () => {
+        planCardArray.forEach((element, index) => {
             if (planCard.id === element.id) {
                 console.log(`item ${planCard.id} found.`);
                 planCardArray.splice(index, 1);
                 console.log("item deleted.");
             }
         });
+
+        updatePlanCardArray();
+    });
+
+    btnPlanCardShiftUp.addEventListener('click', () => {
+        console.log(`${planCard.id} shift up function called.`);
+        let currPlanCard, currIndex;
+
+        for (let i = 1; i < planCardArray.length; i++) {
+            // if curr plan is not in the first place
+            if (planCard.id === planCardArray[i].id && i !== 1) {
+                console.log(`item ${planCard.id} found.`);
+                currIndex = i;
+                currPlanCard = {
+                    id: planCardArray[i].id,
+                    mode: planCardArray[i].mode, // 0-edit, 1-info
+                    showAvgPower: planCardArray[i].showAvgPower,
+                    isFreeride: planCardArray[i].isFreeride,
+                    power: planCardArray[i].power,
+                    durationMinute: planCardArray[i].durationMinute,
+                    durationSecond: planCardArray[i].durationSecond,
+                };
+                planCardArray.splice(i, 1);
+            }
+        }
+
+        if (typeof currPlanCard !== "undefined") {
+            planCardArray.splice(currIndex - 1, 0, currPlanCard);
+        }
 
         updatePlanCardArray();
     });
@@ -363,6 +382,15 @@ let cardInitialize = (planCard) => {
         cardInfoIF.innerText = intensityFactor.toFixed(2);
         cardInfoTSS.innerText = Math.floor(tss);
 
+        // update showAvgPower
+        if (planCard.showAvgPower) {
+            btnShowAvgPower.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            btnShowAvgPower.style.color = "grey";
+        } else {
+            btnShowAvgPower.style.backgroundColor = "rgba(255, 255, 255, .5)";
+            btnShowAvgPower.style.color = "rgb(82, 82, 82)";
+        }
+
         // update isFreeride
         const titleFreeride = document.querySelector(`#${planCard.id} .title-freeride`);
         const titleZone = document.querySelector(`#${planCard.id} .title-zone`);
@@ -370,6 +398,8 @@ let cardInitialize = (planCard) => {
         const cardInfoTitleZone = document.querySelector(`#${planCard.id} .card-info-title-zone`);
 
         if (planCard.isFreeride) {
+            btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            btnIsFreeride.style.color = "grey";
             // update title
             titleFreeride.style.display = "inline";
             titleZone.style.display = "none";
@@ -382,6 +412,8 @@ let cardInitialize = (planCard) => {
             cardInfoIF.innerText = " -";
             cardInfoTSS.innerText = " -";
         } else {
+            btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, .5)";
+            btnIsFreeride.style.color = "rgb(82, 82, 82)";
             // update title
             titleFreeride.style.display = "none";
             titleZone.style.display = "inline";
@@ -394,29 +426,28 @@ let cardInitialize = (planCard) => {
     updateCard();
 }
 
-let updatePlanCardArray = ()=> {
+let updatePlanCardArray = () => {
     // clear elements inside "workout plan session"
     const workoutPlanSession = document.querySelector("#workout-plan-session .d-flex");
     while (workoutPlanSession.lastElementChild) {
-        console.log(`${workoutPlanSession.lastElementChild.id} removed.`);
         workoutPlanSession.removeChild(workoutPlanSession.lastElementChild);
     }
 
     // create element base on plan card array from array[1]
-    for (let i=1; i<planCardArray.length; i++) {
+    for (let i = 1; i < planCardArray.length; i++) {
         // create new element with new id and append it to workout plan seession
         let newCardElement = document.createElement("div");
         newCardElement.id = planCardArray[i].id;
+        console.dir("=============");
+        console.dir(planCardArray);
+        console.dir(planCardArray[i].id);
         newCardElement.style.paddingTop = ".5rem";
-        console.log(`element ${newCardElement.id} created.`);
 
         let oldChild = document.querySelector("#plan-card-0").innerHTML;
         newCardElement.innerHTML = oldChild;
 
         workoutPlanSession.appendChild(newCardElement);
-        console.log(`element ${newCardElement.id} appended into "workout-plan-session".`);
         cardInitialize(planCardArray[i]);
-        console.log(`card ${newCardElement.id} initialized.`);
     }
 }
 
