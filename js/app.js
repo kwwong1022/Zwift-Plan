@@ -72,7 +72,7 @@ document.querySelector('#cyclist-ftp').addEventListener('change', () => {
         console.log(`FTP: ${userFTP}`);
     }
 
-    let p = Math.floor(userFTP*parseInt(document.querySelector("#plan-card-0 .power-percentage").innerText)/100);
+    let p = Math.floor(userFTP * parseInt(document.querySelector("#plan-card-0 .power-percentage").innerText) / 100);
     document.querySelector("#plan-card-0 .power-watt").innerText = p;
     document.querySelector("#plan-card-0 .title-power").innerText = p;
     planCardArray[0].power = p;
@@ -125,3 +125,122 @@ hideProfileBtn.addEventListener('click', () => {
         profileIsClosed = true;
     }
 })
+
+
+// Shortcut Buttons
+const btnShortcutZ1 = document.querySelector(".btn-shortcut-z1");
+const btnShortcutZ2 = document.querySelector(".btn-shortcut-z2");
+const btnShortcutZ3 = document.querySelector(".btn-shortcut-z3");
+const btnShortcutZ4 = document.querySelector(".btn-shortcut-z4");
+const btnShortcutZ5 = document.querySelector(".btn-shortcut-z5");
+
+const btnShortcutWarmup = document.querySelector(".btn-shortcut-warmup");
+const btnShortcutColddown = document.querySelector(".btn-shortcut-colddown");
+
+const btnShortcutReset = document.querySelector(".btn-shortcut-reset");
+
+
+btnShortcutZ1.addEventListener('click', () => {
+    updatePlanCardPower(planCardArray[0], 1);
+})
+btnShortcutZ2.addEventListener('click', () => {
+    updatePlanCardPower(planCardArray[0], 2);
+})
+btnShortcutZ3.addEventListener('click', () => {
+    updatePlanCardPower(planCardArray[0], 3);
+})
+btnShortcutZ4.addEventListener('click', () => {
+    updatePlanCardPower(planCardArray[0], 4);
+})
+btnShortcutZ5.addEventListener('click', () => {
+    updatePlanCardPower(planCardArray[0], 5);
+})
+
+btnShortcutWarmup.addEventListener('click', ()=> {
+    hasWM = hasWM? false:true;
+    if (hasWM) {
+        btnShortcutWarmup.style.backgroundColor = "rgb(219, 114, 44)";
+        btnShortcutWarmup.style.color = "white";
+    } else {
+        btnShortcutWarmup.style.backgroundColor = "white";
+        btnShortcutWarmup.style.color = "rgb(61, 61, 61)";
+    }
+    if (hasWM && hasCD) {
+        document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "rgb(219, 114, 44)";
+    } else {
+        document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
+    }
+})
+btnShortcutColddown.addEventListener('click', ()=> {
+    hasCD = hasCD? false:true;
+    if (hasCD) {
+        btnShortcutColddown.style.backgroundColor = "rgb(219, 114, 44)";
+        btnShortcutColddown.style.color = "white";
+    } else {
+        btnShortcutColddown.style.backgroundColor = "white";
+        btnShortcutColddown.style.color = "rgb(61, 61, 61)";
+    }
+    if (hasWM && hasCD) {
+        document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "rgb(219, 114, 44)";
+    } else {
+        document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
+    }
+})
+
+btnShortcutReset.addEventListener("click", ()=> {
+    while (planCardArray.length !== 1) {
+        planCardArray.pop();
+    }
+    updatePlanCardArray();
+})
+
+let updatePlanCardPower = (card, zone) => {
+    const editCardPowerPer = document.querySelector("#plan-card-0 .power-percentage");
+    const editCardPowerWatt = document.querySelector("#plan-card-0 .power-watt");
+    const editCardTitleZone = document.querySelector("#plan-card-0 .title-zone-level");
+    const editCardTitlePower = document.querySelector("#plan-card-0 .title-power");
+
+    let currBgColor = "";
+
+    switch (zone) {
+        case 1:
+            editCardPowerPer.innerText = 50;
+            card.power = Math.floor(userFTP * 0.5);
+            currBgColor = "rgb(141, 141, 141)";
+            break;
+        case 2:
+            editCardPowerPer.innerText = 65;
+            card.power = Math.floor(userFTP * 0.65);
+            currBgColor = "rgb(59, 179, 248)";
+            break;
+        case 3:
+            editCardPowerPer.innerText = 81;
+            card.power = Math.floor(userFTP * 0.81);
+            currBgColor = "rgb(46, 196, 71)";
+            break;
+        case 4:
+            editCardPowerPer.innerText = 94;
+            card.power = Math.floor(userFTP * 0.94);
+            currBgColor = "rgb(252, 132, 53)";
+            break;
+        case 5:
+            editCardPowerPer.innerText = 104;
+            card.power = Math.floor(userFTP * 1.04);
+            currBgColor = "rgb(233, 203, 68)";
+            break;
+    }
+
+    if (card.isFreeride) {
+        card.isFreeride = false;
+        // update edit card title
+        document.querySelector("#plan-card-0 .btn-is-freeride").style.backgroundColor = "rgba(255, 255, 255, .5)";
+        document.querySelector("#plan-card-0 .btn-is-freeride").style.color = "rgb(82, 82, 82)";
+        document.querySelector("#plan-card-0 .title-freeride").style.display = "none";
+        document.querySelector("#plan-card-0 .title-zone").style.display = "inline";
+    }
+
+    editCardPowerWatt.innerText = card.power;
+    editCardTitleZone.innerText = zone;
+    editCardTitlePower.innerText = card.power;
+    document.querySelector(`#plan-card-0 .edit-card`).style.backgroundColor = currBgColor;
+}

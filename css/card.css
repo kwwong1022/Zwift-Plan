@@ -103,12 +103,10 @@
     border:none; 
     padding: .3rem .3rem .3rem;
 }
-
 .btn-shortcut:hover {
     background-color: rgb(241, 181, 141); 
     color: rgb(61, 61, 61); 
 }
-
 .btn-shortcut:active {
     background-color: rgb(219, 114, 44); 
     color: rgb(61, 61, 61); 
