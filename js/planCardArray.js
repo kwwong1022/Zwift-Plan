@@ -58,14 +58,15 @@ let cardInitialize = (planCard) => {
             btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, 1)";
             btnIsFreeride.style.color = "grey";
             console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
-            // update title
-            // disable edit btns
+
         } else {
             planCard.isFreeride = false;
             btnIsFreeride.style.backgroundColor = "rgba(255, 255, 255, .5)";
             btnIsFreeride.style.color = "rgb(82, 82, 82)";
             console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
+
         }
+
         updateCard();
     })
 
@@ -264,20 +265,26 @@ let cardInitialize = (planCard) => {
             planCardArray.push(newCard);
 
             // create new element with new id and append it to workout plan seession
-            let newCardElement = document.createElement("div");
-            newCardElement.id = `plan-card-${cardId}`;
-            newCardElement.style.paddingTop = ".5rem";
-
-            let oldChild = document.querySelector("#plan-card-0").innerHTML;
-            newCardElement.innerHTML = oldChild;
-
-            workoutPlanSession.appendChild(newCardElement);
-            cardInitialize(planCardArray[cardId]);
+            updatePlanCardArray();
 
             // update id no.
             cardId++;
         }
     })
+
+    // plan card delete button
+    const btnPlanCardClear = document.querySelector(`#${planCard.id} .btn-plan-card-clear`);
+    btnPlanCardClear.addEventListener('click', ()=> {
+        planCardArray.forEach((element, index)=> {
+            if (planCard.id === element.id) {
+                console.log(`item ${planCard.id} found.`);
+                planCardArray.splice(index, 1);
+                console.log("item deleted.");
+            }
+        });
+
+        updatePlanCardArray();
+    });
 
     // oncardchange -> sync card data
     let updateCard = () => {
@@ -347,27 +354,62 @@ let cardInitialize = (planCard) => {
 
         cardInfoIF.innerText = intensityFactor.toFixed(2);
         cardInfoTSS.innerText = Math.floor(tss);
+
+        // update isFreeride
+        const titleFreeride = document.querySelector(`#${planCard.id} .title-freeride`);
+        const titleZone = document.querySelector(`#${planCard.id} .title-zone`);
+        const cardInfoTitleFreeride = document.querySelector(`#${planCard.id} .card-info-title-freeride`);
+        const cardInfoTitleZone = document.querySelector(`#${planCard.id} .card-info-title-zone`);
+
+        if (planCard.isFreeride) {
+            // update title
+            titleFreeride.style.display = "inline";
+            titleZone.style.display = "none";
+            cardInfoTitleFreeride.style.display = "inline";
+            cardInfoTitleZone.style.display = "none";
+            // update background
+            infoCard.style.backgroundColor = "rgb(78, 113, 226)";
+            editCard.style.backgroundColor = "rgb(78, 113, 226)";
+            // update IF & TSS
+            cardInfoIF.innerText = " -";
+            cardInfoTSS.innerText = " -";
+        } else {
+            // update title
+            titleFreeride.style.display = "none";
+            titleZone.style.display = "inline";
+            cardInfoTitleFreeride.style.display = "none";
+            cardInfoTitleZone.style.display = "inline";
+        }
     }
 
-    
     // syncing plan card obj & plan card element
     updateCard();
 }
 
-let spliceCard = CId => {
-    planCardArray.splice[CId,1];
-}
+let updatePlanCardArray = ()=> {
+    // clear elements inside "workout plan session"
+    const workoutPlanSession = document.querySelector("#workout-plan-session .d-flex");
+    while (workoutPlanSession.lastElementChild) {
+        console.log(`${workoutPlanSession.lastElementChild.id} removed.`);
+        workoutPlanSession.removeChild(workoutPlanSession.lastElementChild);
+    }
 
-//only use when array is not sorted or have empty element in it even after splice
-let resortCardArray = () => {
-    planCardArray.forEach(function(item) {
-        if (typeof planCardArray[item] == 'undefined' && planCardArray[item] == null) {
-            for (let index = item+1; index < planCardArray.length; index++) {
-                planCardArray[index-1] = planCardArray[index];
-            }
-        }
-    });
-}
+    // create element base on plan card array from array[1]
+    for (let i=1; i<planCardArray.length; i++) {
+        // create new element with new id and append it to workout plan seession
+        let newCardElement = document.createElement("div");
+        newCardElement.id = planCardArray[i].id;
+        newCardElement.style.paddingTop = ".5rem";
+        console.log(`element ${newCardElement.id} created.`);
 
+        let oldChild = document.querySelector("#plan-card-0").innerHTML;
+        newCardElement.innerHTML = oldChild;
+
+        workoutPlanSession.appendChild(newCardElement);
+        console.log(`element ${newCardElement.id} appended into "workout-plan-session".`);
+        cardInitialize(planCardArray[i]);
+        console.log(`card ${newCardElement.id} initialized.`);
+    }
+}
 
 cardInitialize(planCardArray[0]);
