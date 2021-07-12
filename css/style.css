@@ -82,6 +82,14 @@ nav {
     width: 64%;
 }
 
+#new-plan-card-session {
+    justify-content: center;
+}
+
+#workout-plan-shortcut .d-flex {
+    justify-content: center;
+}
+
 /* ad */
 .ad {
     background-color: rgb(148, 194, 179); 
@@ -345,6 +353,17 @@ footer a:hover {
     }
     #footer-grid-3, #footer-grid-4 {
         width: 10%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .main-content #new-plan-card-session {
+        justify-content: space-between;
+    }
+
+    .main-content #workout-plan-shortcut .d-flex {
+        padding-left: 2.5rem;
+        justify-content: start;
     }
 }
 
