@@ -7,7 +7,7 @@ const planCard0 = {
     mode: 0, // 0-edit, 1-info
     showAvgPower: false,
     isFreeride: false,
-    power: userFTP * 0.6,
+    power: 150,
     durationMinute: 30,
     durationSecond: 0,
 }
@@ -162,8 +162,6 @@ let cardInitialize = (planCard) => {
     const btnAddNewPlan = document.querySelector(`#${planCard.id} .btn-add-new-plan`);
     const btnEditCardExit = document.querySelector(`#${planCard.id} .btn-plan-card-edit-exit`);
     const btnEditCard = document.querySelector(`#${planCard.id} .btn-plan-card-edit`);
-    const svgEditCardDefault = document.querySelector(`#${planCard.id} .btn-plan-card-edit-default`);
-    const svgEditCardHover = document.querySelector(`#${planCard.id} .btn-plan-card-edit-hover`);
 
     // only first plan card have "add plan card btn" displayed
     if (planCard.id === "plan-card-0") {
@@ -442,12 +440,6 @@ let updatePlanCardArray = () => {
         workoutPlanSession.appendChild(newCardElement);
         cardInitialize(planCardArray[i]);
     }
-}
-
-let cardInitializeAll = ()=> {
-    planCardArray.forEach((element)=> {
-        cardInitialize(element);
-    });
 }
 
 cardInitialize(planCardArray[0]);

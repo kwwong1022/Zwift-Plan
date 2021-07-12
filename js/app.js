@@ -38,7 +38,7 @@ welcomeBtn.addEventListener('click', () => {
 // User Profile:
 let cyclistName = "unknown";
 let authorName = "unknown";
-let userFTP = 150;
+let userFTP = 180;
 let isFTPNaN = false;
 let userWeight = 60;
 let isWeightNaN = false;
@@ -46,36 +46,38 @@ let metric = "kilogram";
 let profileIsClosed = false;
 let hasCD = false;
 let hasWM = false;
-let CDPowerHigh,CDPowerLow,WMPowerHigh,WMPowerLow,WMDuration,CDDuration;
+let CDPowerHigh, CDPowerLow, WMPowerHigh, WMPowerLow, WMDuration, CDDuration;
 
 document.querySelector('#cyclist-name').addEventListener('change', () => {
     cyclistName = document.querySelector('#cyclist-name').value;
-    cardInitializeAll();
 });
 
 document.querySelector('#author-name').addEventListener('change', () => {
     authorName = document.querySelector('#author-name').value;
-    cardInitializeAll();
 });
 
 document.querySelector('#metric').addEventListener('change', () => {
     metric = document.querySelector('#metric').value;
     console.log(metric);
-    cardInitializeAll();
 });
 
 document.querySelector('#cyclist-ftp').addEventListener('change', () => {
     if (isNaN(document.querySelector('#cyclist-ftp').value)) {
-        isFTPNaN = true;
-        if (isFTPNaN) {
-            alert("Invaild input, please try again.");
-            isFTPNaN = false;
-        }
+        alert("Invaild input, please try again.");
+        isFTPNaN = false;
+        userFTP = 150;
+
     } else {
         userFTP = document.querySelector('#cyclist-ftp').value;
         console.log(`FTP: ${userFTP}`);
     }
-    cardInitializeAll();
+
+    let p = Math.floor(userFTP*parseInt(document.querySelector("#plan-card-0 .power-percentage").innerText)/100);
+    document.querySelector("#plan-card-0 .power-watt").innerText = p;
+    document.querySelector("#plan-card-0 .title-power").innerText = p;
+    planCardArray[0].power = p;
+
+    updatePlanCardArray();
 });
 
 document.querySelector('#cyclist-weight').addEventListener('change', () => {
@@ -89,11 +91,10 @@ document.querySelector('#cyclist-weight').addEventListener('change', () => {
         if (metric === "kilogram") {
             userWeight = document.querySelector('#cyclist-weight').value;
             console.log(`Weight: ${userWeight}`);
-        } else if (metric === "pound"){
-            userWeight = document.querySelector('#cyclist-weight').value/2.205;
+        } else if (metric === "pound") {
+            userWeight = document.querySelector('#cyclist-weight').value / 2.205;
             console.log(`Weight: ${userWeight}`);
         }
-        cardInitializeAll();
     }
 });
 
