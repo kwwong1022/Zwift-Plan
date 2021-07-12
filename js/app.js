@@ -1,5 +1,5 @@
 // Web Style Function
-// Navbar ===============================================================================
+// Navbar:
 const mainNav = document.querySelector('.main-nav');
 const toggler = document.querySelector('.toggler');
 const nav = document.querySelector('.nav-links');
@@ -27,7 +27,7 @@ visualViewport.addEventListener('resize', function () {
     });
 });
 
-// Welcome Message ============================================================================
+// Welcome Message:
 const msgWelcome = document.querySelector('#msg-welcome');
 const welcomeBtn = document.querySelector('#close-welcome-msg');
 
@@ -35,7 +35,7 @@ welcomeBtn.addEventListener('click', () => {
     msgWelcome.style.display = "none";
 })
 
-// User Profile ===============================================================================
+// User Profile:
 let cyclistName = "unknown";
 let authorName = "unknown";
 let userFTP = 150;
