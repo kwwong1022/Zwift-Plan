@@ -81,11 +81,13 @@
                     <div class="d-flex" style="justify-content: space-between; margin: 1rem .08rem .2rem;">
                         <div style="width: 50%; display: inline; padding-right: 1rem;">
                             <label for="cyclist-name" style="width: 30%; padding-right: .5rem;">Cyclist: </label><br>
-                            <input id="cyclist-name" type="text" placeholder="Cyclist Name" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
+                            <input id="cyclist-name" type="text" placeholder="Cyclist Name"
+                                style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
                         <div style="width: 50%; display: inline; padding-left: 1rem;">
                             <label for="author-name" style="width: 30%; padding-right: .5rem;">Author: </label><br>
-                            <input id="author-name" type="text" placeholder="Author Name" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
+                            <input id="author-name" type="text" placeholder="Author Name"
+                                style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
                     </div>
 
@@ -93,12 +95,14 @@
                         <!-- FTP -->
                         <div style="width: 30%; display: inline;">
                             <label for="cyclist-ftp" style="width: 50%; padding-right: 1rem;">FTP: </label><br>
-                            <input id="cyclist-ftp" type="text" placeholder="FTP (w)" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
+                            <input id="cyclist-ftp" type="text" placeholder="FTP (w)"
+                                style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
                         <!-- Weight -->
                         <div style="width: 30%; display: inline;">
                             <label for="cyclist-weight" style="width: 50%; padding-right: 1rem;">Weight: </label><br>
-                            <input id="cyclist-weight" type="text" placeholder="Weight" style="width: 100%; height: 1.5rem; margin-top: .2rem;">
+                            <input id="cyclist-weight" type="text" placeholder="Weight"
+                                style="width: 100%; height: 1.5rem; margin-top: .2rem;">
                         </div>
                         <!-- Metric -->
                         <div style="width: 30%; display: inline;">
@@ -206,7 +210,7 @@
                                 <!-- Add New Card Button-->
                                 <div style="padding: 1.6rem 0.3rem 0 .9rem;">
                                     <img class="btn-add-new-plan" src="../asset/add_icon.svg"
-                                    style="width: 1.8rem; cursor: pointer;">
+                                        style="width: 1.8rem; cursor: pointer;">
                                 </div>
                                 <div style="padding: 0 0 4.8rem .6rem;">
                                     <img class="btn-plan-card-edit-exit" src="../asset/trash_icon.svg"
@@ -270,13 +274,33 @@
                 <div style="width: 0%;"></div>
             </section>
 
-            <section id="workout-plan-session">
+            <section id="workout-plan-shortcut" style="padding: 0rem 1.5rem 1rem;">
+                <div style="display: flex; justify-content: center; align-content: center;">
+                    <div style="border-radius: 15px; box-shadow: 0px 2px 8px 0px #888888; margin-right: 1rem;">
+                        <button class="btn-shortcut"
+                            style="border-radius: 15px 0px 0px 15px; padding-left: .9rem;">z1</button>
+                        <button class="btn-shortcut">z2</button>
+                        <button class="btn-shortcut">z3</button>
+                        <button class="btn-shortcut">z4</button>
+                        <button class="btn-shortcut"
+                            style="border-radius: 0px 15px 15px 0px; padding-right: .9rem;">z5</button>
+                    </div>
+
+                    <div style="border-radius: 15px; box-shadow: 0px 2px 8px 0px #888888; margin-right: 1rem;">
+                        <button class="btn-shortcut" style="border-radius: 15px 0px 0px 15px; padding-left: .9rem;">warm up</button>
+                        <button class="btn-shortcut" style="border-radius: 0px 15px 15px 0px; padding-right: .9rem;">cold down</button>
+                    </div>
+
+                    <button class="btn-shortcut" style="border-radius: 15px; box-shadow: 0px 2px 8px 0px #888888; padding: 0 .9rem 0">reset</button>
+                </div>
+            </section>
+
+            <section id="workout-plan-session" style="padding-top: 0rem;">
                 <div style="display: flex; justify-content: center;">
                     <div class="d-flex" style="display: block;">
                         <!-- plan card array inside -->
                     </div>
                 </div>
-
             </section>
         </div>
 
