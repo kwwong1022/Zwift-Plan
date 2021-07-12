@@ -290,9 +290,12 @@ let cardInitialize = (planCard) => {
     let updateCard = () => {
         const cardInfoTitleZoneLv = document.querySelector(`#${planCard.id} .card-info-title-zone-level`);
         const cardInfoTitlePower = document.querySelector(`#${planCard.id} .card-info-title-power`);
-        const cardInfoTitleHr = document.querySelector(`#${planCard.id} .card-info-title-hr`);
-        const cardInfoTitleMin = document.querySelector(`#${planCard.id} .card-info-title-min`);
-        const cardInfoTitleSec = document.querySelector(`#${planCard.id} .card-info-title-sec`);
+        const cardInfoTitleHr = document.querySelector(`#${planCard.id} .card-info-title-zone .card-info-title-hr`);
+        const cardInfoTitleMin = document.querySelector(`#${planCard.id} .card-info-title-zone .card-info-title-min`);
+        const cardInfoTitleSec = document.querySelector(`#${planCard.id} .card-info-title-zone .card-info-title-sec`);
+        const cardInfoTitleFreerideHr = document.querySelector(`#${planCard.id} .card-info-title-freeride .card-info-title-hr`);
+        const cardInfoTitleFreerideMin = document.querySelector(`#${planCard.id} .card-info-title-freeride .card-info-title-min`);
+        const cardInfoTitleFreerideSec = document.querySelector(`#${planCard.id} .card-info-title-freeride .card-info-title-sec`);
 
         let currPowerPercentage = planCard.power / userFTP;
         let currZone = "";
@@ -333,16 +336,21 @@ let cardInitialize = (planCard) => {
         cardInfoTitleZoneLv.innerText = currZone;
         cardInfoTitlePower.innerText = planCard.power;
         cardInfoTitleHr.innerText = hour;
+        cardInfoTitleFreerideHr.innerText = hour;
 
         if (min < 10) {
             cardInfoTitleMin.innerText = `0${min}`;
+            cardInfoTitleFreerideMin.innerText = `0${min}`;
         } else {
             cardInfoTitleMin.innerText = min;
+            cardInfoTitleFreerideMin.innerText = min;
         }
         if (sec < 10) {
             cardInfoTitleSec.innerText = `0${sec}`;
+            cardInfoTitleFreerideSec.innerText = `0${sec}`;
         } else {
             cardInfoTitleSec.innerText = sec;
+            cardInfoTitleFreerideSec.innerText = sec;
         }
 
         const cardInfoIF = document.querySelector(`#${planCard.id} .card-info-if`);
