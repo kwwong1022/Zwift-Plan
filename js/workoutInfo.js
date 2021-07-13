@@ -99,11 +99,14 @@ let updateWorkoutSub = () => {
         }
 
         let btnSubmit = document.createElement("button");
-        btnSubmit.id = "btn-download-workout-file"
+        btnSubmit.class = "btn-download-workout-file"
         btnSubmit.innerText = "Download workout file"
         btnSubmit.style.padding = ".2rem .5rem .2rem";
         btnSubmit.style.border = "none";
         btnSubmit.style.margin = ".3rem 0 0";
+        btnSubmit.addEventListener('click', () => {
+            createText('trainingPlan.txt')
+        });
         workoutPlanSubSession.appendChild(btnSubmit);
     }
 }
