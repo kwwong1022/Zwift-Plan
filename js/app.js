@@ -46,7 +46,10 @@ let metric = "kilogram";
 let profileIsClosed = false;
 let hasCD = false;
 let hasWM = false;
-let CDPowerHigh, CDPowerLow, WMPowerHigh, WMPowerLow, WMDuration, CDDuration;
+let CDPowerHigh = 20;
+let CDPowerLow, WMPowerLow;
+let WMPowerHigh = 20; 
+let WMDuration, CDDuration = 300;
 
 document.querySelector('#cyclist-name').addEventListener('change', () => {
     cyclistName = document.querySelector('#cyclist-name').value;

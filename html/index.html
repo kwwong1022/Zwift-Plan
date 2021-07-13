@@ -272,7 +272,7 @@
 
                 <!-- for graph -->
                 <div class="new-plan-card-session-sub" style="padding-left: 2rem;">
-                    <div id="myPieChart"></div>
+                    <div id="myDiv"></div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe consequuntur ipsam ullam,
                     dolore eveniet assumenda minima molestiae iste quas, labore, nisi voluptates tempore temporibus.
                     Voluptatem voluptatibus impedit ut qui.
@@ -329,8 +329,7 @@
             <label for="itemA">Aitem1</label><br>
             <input type="radio" id="itemB" name="testSelectionA" value="itemB">
             <label for="itemB">AItem1</label><br>
-            <input type="button" onclick="addQuestion()" value="Add">
-            <input type="button" onclick="createText('trainingPlan.txt')" value="Submit">
+            <input type="button" onclick="convertArrayToLines()" value="Add">
         </div>
     </form>
 
@@ -374,34 +373,14 @@
     </footer>
 
     <!-- Custom js script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js" integrity="sha512-5vwN8yor2fFT9pgPS9p9R7AszYaNn0LkQElTXIsZFCL7ucT8zDCAqlQXDdaqgA1mZP47hdvztBMsIoFxq/FyyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
-      google.charts.load('current', {packages: ['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-      // Define the chart to be drawn.
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Element');
-      data.addColumn('number', 'Percentage');
-      data.addRows([
-        ['Nitrogen', 0.78],
-        ['Oxygen', 0.21],
-        ['Other', 0.01]
-      ]);
-
-      // Instantiate and draw the chart.
-      var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-      chart.draw(data, null);
-    }
-  </script>
-    </script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.2.1.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/planTool.js"></script>
     <script src="../js/planCardArray.js"></script>
     <script src="../js/workoutInfo.js"></script>
     <script src="../js/graphDrawer.js"></script>
-    
 </body>
 
 </html>
