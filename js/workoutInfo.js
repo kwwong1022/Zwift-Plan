@@ -27,7 +27,7 @@ let updateWorkoutSub = () => {
             let title = document.createElement("h4");
             title.innerText = `Warm up\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa015m 00s`;
             title.style.fontWeight = "400";
-            title.style.paddingBottom = ".5rem";
+            title.style.paddingBottom = ".8rem";
             newDiv.appendChild(title);
             workoutPlanSubSession.appendChild(newDiv);
         }
@@ -73,7 +73,13 @@ let updateWorkoutSub = () => {
                 }
             }
             title.style.fontWeight = "400";
-            title.style.paddingBottom = ".5rem";
+            title.style.paddingBottom = ".3rem";
+            newDiv.appendChild(title);
+            title = document.createElement("h4");
+            title.innerText = `Power: ${"10"}%\xa0\xa0\xa0w/kg: ${"10"}\xa0\xa0\xa0IF: ${"10"}\xa0\xa0\xa0TSS: ${"10"}`;
+            title.style.fontSize = ".9rem";
+            title.style.fontWeight = "400";
+            title.style.paddingBottom = ".9rem";
             newDiv.appendChild(title);
             workoutPlanSubSession.appendChild(newDiv);
         }
@@ -84,7 +90,6 @@ let updateWorkoutSub = () => {
             let title = document.createElement("h4");
             title.innerText = `Cold down\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa015m 00s`;
             title.style.fontWeight = "400";
-            title.style.paddingBottom = ".5rem";
             newDiv.appendChild(title);
             workoutPlanSubSession.appendChild(newDiv);
         }

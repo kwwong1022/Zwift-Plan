@@ -381,7 +381,7 @@ footer a:hover {
     .new-plan-card-session-sub, .workout-plan-session-sub {
         display: inline;
         justify-content: center;
-        width: 45%;
+        width: 40%;
     }
 }
 
