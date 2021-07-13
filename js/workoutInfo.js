@@ -18,7 +18,7 @@ let updateWorkoutSub = () => {
         workoutTitle.innerText = "Workout info:";
         workoutTitle.style.fontSize = "1.2rem";
         workoutTitle.style.fontWeight = "400";
-        workoutTitle.style.padding = ".4rem 0 .7rem";
+        workoutTitle.style.padding = ".4rem 0 1rem";
         workoutPlanSubSession.appendChild(workoutTitle);
 
         // wu func
@@ -59,6 +59,10 @@ let updateWorkoutSub = () => {
 
             let newDiv = document.createElement("div");
             let title = document.createElement("h4");
+            let intensityFactor = element.power / userFTP;
+            let tss = (element.durationMinute * 60 + element.durationSecond) * element.power * (element.power / userFTP) / (userFTP * 3600) * 100;
+            let wkg = element.power/userFTP;
+
             if (element.isFreeride) {
                 if (hour < 1) {
                     title.innerText = `Freeride\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0${min}m ${sec}s`;
@@ -76,7 +80,7 @@ let updateWorkoutSub = () => {
             title.style.paddingBottom = ".3rem";
             newDiv.appendChild(title);
             title = document.createElement("h4");
-            title.innerText = `Power: ${"10"}%\xa0\xa0\xa0w/kg: ${"10"}\xa0\xa0\xa0IF: ${"10"}\xa0\xa0\xa0TSS: ${"10"}`;
+            title.innerText = `Power: ${Math.floor(element.power/userFTP*100)}%\xa0\xa0\xa0w/kg: ${wkg.toFixed(1)}\xa0\xa0\xa0IF: ${intensityFactor.toFixed(2)}\xa0\xa0\xa0TSS: ${Math.floor(tss)}`;
             title.style.fontSize = ".9rem";
             title.style.fontWeight = "400";
             title.style.paddingBottom = ".9rem";
@@ -95,11 +99,3 @@ let updateWorkoutSub = () => {
         }
     }
 }
-
-/*
-.break-line{
-    height: .8px;
-    width: 100%;
-    margin-top: 2.5rem;
-    background-color: rgb(194, 194, 194);
-} */
