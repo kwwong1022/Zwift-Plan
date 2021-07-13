@@ -61,7 +61,7 @@ let updateWorkoutSub = () => {
             let title = document.createElement("h4");
             let intensityFactor = element.power / userFTP;
             let tss = (element.durationMinute * 60 + element.durationSecond) * element.power * (element.power / userFTP) / (userFTP * 3600) * 100;
-            let wkg = element.power/userWeight;
+            let wkg = element.power / userWeight;
 
             if (element.isFreeride) {
                 if (hour < 1) {
@@ -80,7 +80,7 @@ let updateWorkoutSub = () => {
             title.style.paddingBottom = ".3rem";
             newDiv.appendChild(title);
             title = document.createElement("h4");
-            title.innerText = `Power: ${Math.floor(element.power/userFTP*100)}%\xa0\xa0\xa0w/kg: ${wkg.toFixed(1)}\xa0\xa0\xa0IF: ${intensityFactor.toFixed(2)}\xa0\xa0\xa0TSS: ${Math.floor(tss)}`;
+            title.innerText = `Power: ${Math.floor(element.power / userFTP * 100)}%\xa0\xa0\xa0w/kg: ${wkg.toFixed(1)}\xa0\xa0\xa0IF: ${intensityFactor.toFixed(2)}\xa0\xa0\xa0TSS: ${Math.floor(tss)}`;
             title.style.fontSize = ".9rem";
             title.style.fontWeight = "400";
             title.style.paddingBottom = ".9rem";
@@ -97,5 +97,13 @@ let updateWorkoutSub = () => {
             newDiv.appendChild(title);
             workoutPlanSubSession.appendChild(newDiv);
         }
+
+        let btnSubmit = document.createElement("button");
+        btnSubmit.id = "btn-download-workout-file"
+        btnSubmit.innerText = "Download workout file"
+        btnSubmit.style.padding = ".2rem .5rem .2rem";
+        btnSubmit.style.border = "none";
+        btnSubmit.style.margin = ".3rem 0 0";
+        workoutPlanSubSession.appendChild(btnSubmit);
     }
 }
