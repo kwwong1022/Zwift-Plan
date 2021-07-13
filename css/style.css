@@ -366,21 +366,22 @@ footer a:hover {
 
 @media (min-width: 1400px) {
     .main-content #new-plan-card-session {
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .main-content #workout-plan-shortcut .d-flex {
-        padding-left: 2.5rem;
+        padding-left: 7%;
         justify-content: start;
     }
 
     .main-content #workout-plan-session {
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .new-plan-card-session-sub, .workout-plan-session-sub {
-        display: flex;
+        display: inline;
         justify-content: center;
+        width: 45%;
     }
 }
 

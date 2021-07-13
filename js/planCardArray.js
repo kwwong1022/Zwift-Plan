@@ -219,6 +219,7 @@ let cardInitialize = (planCard) => {
             planCardArray.push(newCard);
             // create new element with new id and append it to workout plan seession
             updatePlanCardArray();
+            checkWorkoutIsEmpty();
             // update id no.
             cardId++;
         }
