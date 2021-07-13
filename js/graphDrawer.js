@@ -15,6 +15,14 @@ function convertArrayToLines(){
   WMDuration = 300;
   CDDuration = 300;
   sumTime = 0;
+  afterTime = 42;
+  trace = {
+    x: [],
+    y: [],
+    type: 'scatter',
+    mode: 'lines',
+    color: 'rgb(55, 128, 191)'
+  };
   if (hasWM) {
     console.log("WM");
     convertWMToLines(sumTime + WMDuration);
@@ -49,6 +57,7 @@ function convertArrayToLines(){
     let layout = {
     showlegend: false
   };
+  Plotly.deleteTraces('myDiv', 0);
   Plotly.newPlot('myDiv', data,layout);
 }
 
