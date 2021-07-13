@@ -193,6 +193,7 @@ let cardInitialize = (planCard) => {
             editCard.style.display = "none";
             infoCard.style.display = "flex";
             updateCard();
+            checkWorkoutIsEmpty();
         }
     });
 
@@ -240,6 +241,7 @@ let cardInitialize = (planCard) => {
         });
 
         updatePlanCardArray();
+        checkWorkoutIsEmpty();
     });
 
     btnPlanCardShiftUp.addEventListener('click', () => {
@@ -269,6 +271,7 @@ let cardInitialize = (planCard) => {
         }
 
         updatePlanCardArray();
+        checkWorkoutIsEmpty();
     });
 
     btnPlanCardShiftDown.addEventListener('click', () => {
@@ -298,6 +301,7 @@ let cardInitialize = (planCard) => {
         }
 
         updatePlanCardArray();
+        checkWorkoutIsEmpty();
     });
 
     // oncardchange -> sync card data

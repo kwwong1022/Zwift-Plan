@@ -18,7 +18,7 @@ let updateWorkoutSub = () => {
         workoutTitle.innerText = "Workout info:";
         workoutTitle.style.fontSize = "1.2rem";
         workoutTitle.style.fontWeight = "400";
-        workoutTitle.style.padding = ".4rem 0 1rem";
+        workoutTitle.style.padding = "1.4rem 0 1rem";
         workoutPlanSubSession.appendChild(workoutTitle);
 
         // wu func
@@ -61,7 +61,7 @@ let updateWorkoutSub = () => {
             let title = document.createElement("h4");
             let intensityFactor = element.power / userFTP;
             let tss = (element.durationMinute * 60 + element.durationSecond) * element.power * (element.power / userFTP) / (userFTP * 3600) * 100;
-            let wkg = element.power/userFTP;
+            let wkg = element.power/userWeight;
 
             if (element.isFreeride) {
                 if (hour < 1) {

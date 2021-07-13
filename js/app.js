@@ -78,6 +78,7 @@ document.querySelector('#cyclist-ftp').addEventListener('change', () => {
     planCardArray[0].power = p;
 
     updatePlanCardArray();
+    checkWorkoutIsEmpty();
 });
 
 document.querySelector('#cyclist-weight').addEventListener('change', () => {
@@ -96,6 +97,7 @@ document.querySelector('#cyclist-weight').addEventListener('change', () => {
             console.log(`Weight: ${userWeight}`);
         }
     }
+    checkWorkoutIsEmpty();
 });
 
 // hide function
@@ -170,6 +172,7 @@ btnShortcutWarmup.addEventListener('click', ()=> {
     } else {
         document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
     }
+    checkWorkoutIsEmpty();
 })
 btnShortcutColddown.addEventListener('click', ()=> {
     hasCD = hasCD? false:true;
@@ -185,6 +188,7 @@ btnShortcutColddown.addEventListener('click', ()=> {
     } else {
         document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
     }
+    checkWorkoutIsEmpty();
 })
 
 btnShortcutReset.addEventListener("click", ()=> {
@@ -192,6 +196,7 @@ btnShortcutReset.addEventListener("click", ()=> {
         planCardArray.pop();
     }
     updatePlanCardArray();
+    checkWorkoutIsEmpty();
 })
 
 let updatePlanCardPower = (card, zone) => {
