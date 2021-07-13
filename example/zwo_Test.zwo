@@ -6,7 +6,7 @@
     <tags/>
     <workout>
         <Warmup Duration="600" PowerLow="0.2487234" PowerHigh="0.75085104" pace="0"/>
-        <SteadyState Duration="300" Power="0.49978721" pace="0"/>
+        <SteadyState Duration="300" Power="0.49978721" pace="0" show_avg="1"/>
         <SteadyState Duration="300" Power="0.64872336" pace="0"/>
         <SteadyState Duration="300" Power="0.81042552" pace="0"/>
         <SteadyState Duration="300" Power="0.95085102" pace="0"/>
