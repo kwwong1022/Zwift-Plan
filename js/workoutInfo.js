@@ -101,12 +101,36 @@ let updateWorkoutSub = () => {
         let btnSubmit = document.createElement("button");
         btnSubmit.class = "btn-download-workout-file"
         btnSubmit.innerText = "Download workout file"
-        btnSubmit.style.padding = ".2rem .5rem .2rem";
-        btnSubmit.style.border = "none";
+        btnSubmit.style.padding = ".3rem 2rem .3rem";
+        btnSubmit.style.borderWidth = ".1rem";
+        btnSubmit.style.backgroundColor = "white";
+        btnSubmit.style.color = "rgb(70, 70, 70)";
+        btnSubmit.style.cursor = "pointer";
+        //btnSubmit.style.boxShadow = "0px 2px 13px 0px #888888"; 
         btnSubmit.style.margin = ".3rem 0 0";
+        btnSubmit.addEventListener('mouseover', () => {
+            btnSubmit.style.backgroundColor = "rgb(230, 230, 230)";
+        });
+        btnSubmit.addEventListener('mouseout', () => {
+            btnSubmit.style.backgroundColor = "white";
+        });
         btnSubmit.addEventListener('click', () => {
-            createText('trainingPlan.txt')
+            createText('trainingPlan.txt');
         });
         workoutPlanSubSession.appendChild(btnSubmit);
     }
 }
+
+let updateDownloadButton = () => {
+    if (window.innerWidth < 1400 && typeof planCardArray[1] !== "undefined") {
+        document.querySelector(".main-content .btn-download-a").style.display = "inline"
+    }
+}
+
+setInterval(()=> {
+    if (window.innerWidth > 1400) {
+        document.querySelector(".main-content .btn-download-a").style.display = "none"
+    } else if (window.innerWidth < 1400 && typeof planCardArray[1] !== "undefined") {
+        document.querySelector(".main-content .btn-download-a").style.display = "inline"
+    }
+}, 100);

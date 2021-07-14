@@ -139,7 +139,6 @@
 }
 
 /* Animation */
-
 @keyframes addCardFade {
     from {
         opacity: 1;

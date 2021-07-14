@@ -194,6 +194,7 @@ let cardInitialize = (planCard) => {
             infoCard.style.display = "flex";
             updateCard();
             checkWorkoutIsEmpty();
+            updateDownloadButton();
         }
     });
 
@@ -221,6 +222,7 @@ let cardInitialize = (planCard) => {
             // create new element with new id and append it to workout plan seession
             updatePlanCardArray();
             checkWorkoutIsEmpty();
+            updateDownloadButton();
             // update id no.
             cardId++;
         }

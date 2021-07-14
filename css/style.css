@@ -140,6 +140,19 @@ nav {
     transition: 0.2s ease-in;
 }
 
+/* download */
+.btn-download-a {
+    border: none;
+    background-color: rgb(252, 132, 53); 
+    color: white; 
+    padding: .3rem 2rem .3rem;
+    border: none; 
+    cursor: pointer;
+}
+.btn-download-a:hover {
+    background-color: rgb(219, 114, 44);
+}
+
 /* footer */
 footer {
     color: rgb(247, 247, 247);
@@ -235,7 +248,6 @@ footer a:hover {
     .main-content {
         width: 100%;
         padding: 1rem; 
-
     }
 
     /* welcome message */

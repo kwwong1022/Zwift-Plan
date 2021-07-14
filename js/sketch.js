@@ -17,18 +17,41 @@ function draw() {
     initialize();
     processColumnsData();
 
-    // draw grid
+    // draw grid 
     amount = 5;
-    stroke(180);
-    strokeWeight(2);
-    for (let y=chartHeight; y<amount; y+=chartHeight/5) {
-        line(0, y, width, y);
+    fill(150);
+    for (let i = 0; i < 5; i++) {
+        rect(width - chartWidth - 6, (height / 5 * i) + (height - chartHeight) + 10, width, 1);
+        stroke(0);
+        strokeWeight(0.1);
+        textAlign(RIGHT);
+        switch (i) {
+            case 0:
+                text(`${Math.floor(maxHeight)}w`, 30, (height / 5 * i) + 25);
+                break;
+            case 1:
+                text(`${Math.floor(maxHeight/2)}w`, 30, (height / 5 * i) + 25);
+                break;
+            case 2:
+                text(`${Math.floor(maxHeight/3)}w`, 30, (height / 5 * i) + 25);
+                break;
+            case 3:
+                text(`${Math.floor(maxHeight/4)}w`, 30, (height / 5 * i) + 25);
+                break;
+            case 4:
+                text(`0w`, 30, (height / 5 * i) + 25);
+                break;
+            default:
+                text(`${Math.floor(maxHeight / i)}w`, 30, (height / 5 * i) + 25);
+                break;
+        }
+        noStroke();
     }
 
     // draw chart
     let startPos = 0;
     for (let i = 0; i < columns.length; i++) {
-        let currZone = getCurrentZone(planCardArray[i + 1].power / userFTP);
+        let currZone = getCurrentZone(planCardArray[i + 1].power / userFTP, planCardArray[i + 1].isFreeride);
         let r = getCurrentZoneColor(currZone, "r");
         let g = getCurrentZoneColor(currZone, "g");
         let b = getCurrentZoneColor(currZone, "b");
@@ -42,13 +65,13 @@ function draw() {
         let colHeight = columns[i].relativeHeight;
 
         noStroke();
-        fill(r, g, b, 180);
+        fill(r, g, b, 200);
         rect(posX, posY, colWidth, colHeight);
         startPos += colWidth;
     }
 }
 
-let processColumnsData = ()=> {
+let processColumnsData = () => {
     // get max height & maxWidth
     for (let i = 1; i < planCardArray.length; i++) {
         let el = planCardArray[i];
@@ -66,7 +89,12 @@ let processColumnsData = ()=> {
         let relativeWidth;
         let maxWidthRatio = (el.durationMinute * 60 + el.durationSecond) / maxWidth;
         // relative height of col - (power / canvas height)
-        let relativeHeight = chartHeight * (el.power / maxHeight);
+        let relativeHeight;
+        if (el.isFreeride) {
+            relativeHeight = chartHeight * (100 / maxHeight);
+        } else {
+            relativeHeight = chartHeight * (el.power / maxHeight);
+        }
 
         // push col obj to columns[]
         columns.push({
@@ -92,8 +120,10 @@ let processColumnsData = ()=> {
     }
 }
 
-let getCurrentZone = (currPowerPercentage) => {
-    if (currPowerPercentage < 0.56) {
+let getCurrentZone = (currPowerPercentage, isFreeride) => {
+    if (isFreeride) {
+        return 0;
+    } else if (currPowerPercentage < 0.56) {
         return 1;
     } else if (currPowerPercentage >= 0.56 && currPowerPercentage < 0.76) {
         return 2;
@@ -113,6 +143,9 @@ let getCurrentZone = (currPowerPercentage) => {
 let getCurrentZoneColor = (zone, colorChannel) => {
     let r, g, b;
     switch (zone) {
+        case 0:
+            r = 78, g = 113, b = 226;
+            break;
         case 1:
             r = 141, g = 141, b = 141;
             break;
@@ -145,16 +178,16 @@ let getCurrentZoneColor = (zone, colorChannel) => {
     }
 }
 
-let initialize = ()=>{
-    background(220);
+let initialize = () => {
+    background(255);
     noStroke();
     amount = 0;
     maxHeight = 0;
     maxWidth = 0;
     allColWidth = 0;
     // chart padding px
-    chartWidth = width - 40;  
-    chartHeight = height - 0;
+    chartWidth = width - 40;
+    chartHeight = height - 10;
     // scale to chart width ratio
     x = 0;
 
