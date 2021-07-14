@@ -115,7 +115,7 @@ let updateWorkoutSub = () => {
             btnSubmit.style.backgroundColor = "white";
         });
         btnSubmit.addEventListener('click', () => {
-            createText('trainingPlan.txt');
+            createText('trainingPlan.zwo');
         });
         workoutPlanSubSession.appendChild(btnSubmit);
     }
