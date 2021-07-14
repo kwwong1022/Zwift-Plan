@@ -30,10 +30,10 @@ function genCardToZWO(SCard){//SCard should be number of element in the cardArra
 	} 
 	else {
 		if (planCardArray[SCard].showAvgPower === true) {
-			str+='		<SteadyState Duration="'+ (planCardArray[SCard].durationMinute*60+planCardArray[SCard].durationSecond) +'" Power="'+ planCardArray[SCard].power +'" pace="0" show_avg="1"/>\n'
+			str+='		<SteadyState Duration="'+ (planCardArray[SCard].durationMinute*60+planCardArray[SCard].durationSecond) +'" Power="'+ (planCardArray[SCard].power/userFTP) +'" pace="0" show_avg="1"/>\n'
 		} 
 		else {
-			str+='		<SteadyState Duration="'+ (planCardArray[SCard].durationMinute*60+planCardArray[SCard].durationSecond) +'" Power="'+ planCardArray[SCard].power +'" pace="0"/>\n'
+			str+='		<SteadyState Duration="'+ (planCardArray[SCard].durationMinute*60+planCardArray[SCard].durationSecond) +'" Power="'+ (planCardArray[SCard].power/userFTP) +'" pace="0"/>\n'
 		}
 	} 
 	return str;
