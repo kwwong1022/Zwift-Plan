@@ -18,7 +18,7 @@ let updateWorkoutSub = () => {
         workoutTitle.innerText = "Workout info:";
         workoutTitle.style.fontSize = "1.2rem";
         workoutTitle.style.fontWeight = "400";
-        workoutTitle.style.padding = "1.4rem 0 1rem";
+        workoutTitle.style.padding = "0rem 0 1rem";
         workoutPlanSubSession.appendChild(workoutTitle);
 
         // wu func
