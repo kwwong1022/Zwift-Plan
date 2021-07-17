@@ -71,7 +71,6 @@ document.querySelector('#cyclist-ftp').addEventListener('change', () => {
         alert("Invaild input, please try again.");
         isFTPNaN = false;
         userFTP = 150;
-
     } else {
         userFTP = document.querySelector('#cyclist-ftp').value;
         console.log(`FTP: ${userFTP}`);

@@ -42,7 +42,7 @@ let cardInitialize = (planCard) => {
         console.log(`${planCard.id}.showAvgPower: ${planCard.showAvgPower}`);
 
         updateCard();
-    })
+    });
 
     // btn-is-freeride
     btnIsFreeride.addEventListener('click', () => {
@@ -50,43 +50,40 @@ let cardInitialize = (planCard) => {
         console.log(`${planCard.id}.isFreeRide: ${planCard.isFreeride}`);
 
         updateCard();
-    })
+    });
 
     powerPercentage.innerText = Math.floor(parseInt(planCard.power / userFTP * 100));
     addPowerPercentageSmall.addEventListener('click', () => {
         processPowerData(true, powerPercentage, 1);
-    })
+    });
     addPowerPercentageLarge.addEventListener('click', () => {
         processPowerData(true, powerPercentage, 5);
-    })
+    });
     minusPowerPercentageSmall.addEventListener('click', () => {
         processPowerData(true, powerPercentage, -1);
-    })
+    });
     minusPowerPercentageLarge.addEventListener('click', () => {
         processPowerData(true, powerPercentage, -5);
-    })
+    });
 
     powerWatt.innerText = planCard.power;
     addPowerWattSmall.addEventListener('click', () => {
         processPowerData(false, powerWatt, 1);
-    })
+    });
     addPowerWattLarge.addEventListener('click', () => {
         processPowerData(false, powerWatt, 5);
-    })
+    });
     minusPowerWattSmall.addEventListener('click', () => {
         processPowerData(false, powerWatt, -1);
-    })
+    });
     minusPowerWattLarge.addEventListener('click', () => {
         processPowerData(false, powerWatt, -5);
-    })
+    });
 
     let processPowerData = (isPer, span, amount) => {
         let curr = parseInt(span.innerText);
         curr += amount;
-
-        if (curr <= 0) {
-            curr = 0;
-        }
+        curr = curr <= 0? 0:curr;
 
         if (isPer) {
             planCard.power = Math.floor(curr * userFTP / 100);
@@ -97,7 +94,6 @@ let cardInitialize = (planCard) => {
             span.innerText = curr;
             powerPercentage.innerText = Math.floor(curr / userFTP * 100);
         }
-
         updateCard();
     }
 
@@ -118,31 +114,31 @@ let cardInitialize = (planCard) => {
 
     addDurationMinuteSmall.addEventListener('click', () => {
         processDurationData(true, durationMinute, 1);
-    })
+    });
     addDurationMinuteLarge.addEventListener('click', () => {
         processDurationData(true, durationMinute, 5);
-    })
+    });
     minusDurationMinuteSmall.addEventListener('click', () => {
         processDurationData(true, durationMinute, -1);
-    })
+    });
     minusDurationMinuteLarge.addEventListener('click', () => {
         processDurationData(true, durationMinute, -5);
-    })
+    });
 
     durationSecond.innerText = planCard.durationSecond < 10 ? `0${planCard.durationSecond}` : planCard.durationSecond;
 
     addDurationSecondSmall.addEventListener('click', () => {
         processDurationData(false, durationSecond, 1);
-    })
+    });
     addDurationSecondLarge.addEventListener('click', () => {
         processDurationData(false, durationSecond, 5);
-    })
+    });
     minusDurationSecondSmall.addEventListener('click', () => {
         processDurationData(false, durationSecond, -1);
-    })
+    });
     minusDurationSecondLarge.addEventListener('click', () => {
         processDurationData(false, durationSecond, -5);
-    })
+    });
 
     let processDurationData = (isMin, span, amount) => {
         let curr = parseInt(span.innerText);
@@ -158,7 +154,6 @@ let cardInitialize = (planCard) => {
             planCard.durationSecond = curr;
             span.innerText = curr < 10 ? `0${curr}` : curr;
         }
-
         updateCard();
     }
 
@@ -245,7 +240,6 @@ let cardInitialize = (planCard) => {
                 console.log("item deleted.");
             }
         });
-
         updatePlanCardArray();
         checkWorkoutIsEmpty();
     });
@@ -275,7 +269,6 @@ let cardInitialize = (planCard) => {
         if (typeof currPlanCard !== "undefined") {
             planCardArray.splice(currIndex - 1, 0, currPlanCard);
         }
-
         updatePlanCardArray();
         checkWorkoutIsEmpty();
     });
@@ -305,7 +298,6 @@ let cardInitialize = (planCard) => {
         if (typeof currPlanCard !== "undefined") {
             planCardArray.splice(currIndex + 1, 0, currPlanCard);
         }
-
         updatePlanCardArray();
         checkWorkoutIsEmpty();
     });
@@ -452,5 +444,4 @@ let updatePlanCardArray = () => {
         cardInitialize(planCardArray[i]);
     }
 }
-
 cardInitialize(planCardArray[0]);
