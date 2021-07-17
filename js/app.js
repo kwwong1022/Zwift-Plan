@@ -36,7 +36,7 @@ welcomeBtn.addEventListener('click', () => {
 })
 
 // User Profile:
-let cyclistName = "unknown";
+let workoutTitle = "unknown";
 let authorName = "unknown";
 let userFTP = 180;
 let isFTPNaN = false;
@@ -49,12 +49,12 @@ let hasWM = false;
 let CDPowerHigh = 0.5;
 let CDPowerLow = 0;
 let WMPowerLow = 0;
-let WMPowerHigh = 0.5; 
+let WMPowerHigh = 0.5;
 let WMDuration = 1500;
 let CDDuration = 1500;
 
-document.querySelector('#cyclist-name').addEventListener('change', () => {
-    cyclistName = document.querySelector('#cyclist-name').value;
+document.querySelector('#workout-title').addEventListener('change', () => {
+    workoutTitle = document.querySelector('#workout-title').value;
 });
 
 document.querySelector('#author-name').addEventListener('change', () => {
@@ -163,8 +163,8 @@ btnShortcutZ5.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 5);
 })
 
-btnShortcutWarmup.addEventListener('click', ()=> {
-    hasWM = hasWM? false:true;
+btnShortcutWarmup.addEventListener('click', () => {
+    hasWM = hasWM ? false : true;
     if (hasWM) {
         btnShortcutWarmup.style.backgroundColor = "rgb(219, 114, 44)";
         btnShortcutWarmup.style.color = "white";
@@ -179,8 +179,8 @@ btnShortcutWarmup.addEventListener('click', ()=> {
     }
     checkWorkoutIsEmpty();
 })
-btnShortcutColddown.addEventListener('click', ()=> {
-    hasCD = hasCD? false:true;
+btnShortcutColddown.addEventListener('click', () => {
+    hasCD = hasCD ? false : true;
     if (hasCD) {
         btnShortcutColddown.style.backgroundColor = "rgb(219, 114, 44)";
         btnShortcutColddown.style.color = "white";
@@ -196,7 +196,7 @@ btnShortcutColddown.addEventListener('click', ()=> {
     checkWorkoutIsEmpty();
 })
 
-btnShortcutReset.addEventListener("click", ()=> {
+btnShortcutReset.addEventListener("click", () => {
     while (planCardArray.length !== 1) {
         planCardArray.pop();
     }
