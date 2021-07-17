@@ -132,7 +132,20 @@
 @media (min-width: 992px) and (max-width: 1200px) {
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
+    .main-content #new-plan-card-session, #workout-plan-session {
+        padding: 1rem 0 1rem 6%;
+    }
+
+    .main-content #workout-plan-shortcut .d-flex {
+        padding-left: 8%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .main-content #workout-plan-shortcut .d-flex {
+        padding-left: 11.5%;
+    }
 }
 
 /* Animation */
