@@ -1,10 +1,28 @@
 // Plan Tool Function
-function createText(filename) {
+function createText() {
 	var text = '';
+	var filename = '';
+	if (document.querySelector('#workout-title').value === "") {
+		let today = new Date();
+		let dd = String(today.getDate()).padStart(2, '0');
+		let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		let yyyy = today.getFullYear();
 
+		today = mm + '/' + dd + '/' + yyyy;
+		if (authorName === "") {
+			filename = today+'_workout+plan';
+		} 
+		else {
+			filename = today+'_workout_for_'+authorName;
+		}
+		
+	} else {
+		filename = document.querySelector('#workout-title').value
+	}
 	text += '<workout_file>\n	<author>'+ authorName +'</author>\n	<name>zwo Test</name>\n	<description></description>\n	<sportType>bike</sportType>\n	<tags/>\n	<workout>\n'
 	text += genZWO();
 	text += '	</workout>\n</workout_file>';
+	filename+= '.zwo'
 	download(filename, text)
 }
 

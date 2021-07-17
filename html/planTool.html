@@ -320,7 +320,7 @@
 
             <section id="workout-plan-info" style="padding: 1rem 2rem 1rem;">
                 <div class=".workout-plan-session-sub d-flex" style="justify-content: center;">
-                    <button class="btn-download-a" style="display: none;" onclick="createText('trainingPlan.zwo')">Download workout file</button>
+                    <button class="btn-download-a" style="display: none;" onclick="createText()">Download workout file</button>
                 </div>
             </section>
         </div>
@@ -329,17 +329,6 @@
             <div class="ad"></div>
         </div>
     </div>
-
-    <form id="formMain" action="/action_page.php" onsubmit="download('trainingPlan.txt')" style="display: none;">
-        <div id="question1">
-            <input type="radio" id="itemA" name="testSelectionA" value="itemA" checked="checked">
-            <label for="itemA">Aitem1</label><br>
-            <input type="radio" id="itemB" name="testSelectionA" value="itemB">
-            <label for="itemB">AItem1</label><br>
-            <input type="button" onclick="addQuestion()" value="Add">
-            <input type="button" onclick="createText('trainingPlan.txt')" value="Submit">
-        </div>
-    </form>
 
     <p id="demo" style="display: none;">test</p>
 
