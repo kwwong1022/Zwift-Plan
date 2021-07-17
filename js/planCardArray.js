@@ -84,6 +84,10 @@ let cardInitialize = (planCard) => {
         let curr = parseInt(span.innerText);
         curr += amount;
 
+        if (curr <= 0) {
+            curr = 0;
+        }
+
         if (isPer) {
             planCard.power = Math.floor(curr * userFTP / 100);
             span.innerText = curr;

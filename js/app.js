@@ -33,7 +33,7 @@ const welcomeBtn = document.querySelector('#close-welcome-msg');
 
 welcomeBtn.addEventListener('click', () => {
     msgWelcome.style.display = "none";
-})
+});
 
 // User Profile:
 let workoutTitle = "unknown";
@@ -131,8 +131,7 @@ hideProfileBtn.addEventListener('click', () => {
         userProfileSession.style.padding = ".05rem 2rem 1rem";
         profileIsClosed = true;
     }
-})
-
+});
 
 // Shortcut Buttons
 const btnShortcutZ1 = document.querySelector(".btn-shortcut-z1");
@@ -143,25 +142,23 @@ const btnShortcutZ5 = document.querySelector(".btn-shortcut-z5");
 
 const btnShortcutWarmup = document.querySelector(".btn-shortcut-warmup");
 const btnShortcutColddown = document.querySelector(".btn-shortcut-colddown");
-
 const btnShortcutReset = document.querySelector(".btn-shortcut-reset");
-
 
 btnShortcutZ1.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 1);
-})
+});
 btnShortcutZ2.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 2);
-})
+});
 btnShortcutZ3.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 3);
-})
+});
 btnShortcutZ4.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 4);
-})
+});
 btnShortcutZ5.addEventListener('click', () => {
     updatePlanCardPower(planCardArray[0], 5);
-})
+});
 
 btnShortcutWarmup.addEventListener('click', () => {
     hasWM = hasWM ? false : true;
@@ -178,7 +175,7 @@ btnShortcutWarmup.addEventListener('click', () => {
         document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
     }
     checkWorkoutIsEmpty();
-})
+});
 btnShortcutColddown.addEventListener('click', () => {
     hasCD = hasCD ? false : true;
     if (hasCD) {
@@ -194,7 +191,7 @@ btnShortcutColddown.addEventListener('click', () => {
         document.querySelector("#workout-plan-shortcut .btn-shortcut-wm-cd").style.backgroundColor = "white";
     }
     checkWorkoutIsEmpty();
-})
+});
 
 btnShortcutReset.addEventListener("click", () => {
     while (planCardArray.length !== 1) {
@@ -202,7 +199,7 @@ btnShortcutReset.addEventListener("click", () => {
     }
     updatePlanCardArray();
     checkWorkoutIsEmpty();
-})
+});
 
 let updatePlanCardPower = (card, zone) => {
     const editCardPowerPer = document.querySelector("#plan-card-0 .power-percentage");
