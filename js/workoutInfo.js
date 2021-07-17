@@ -128,7 +128,7 @@ let updateDownloadButton = () => {
 }
 
 setInterval(()=> {
-    if (window.innerWidth > 1400) {
+    if (window.innerWidth > 1400 || typeof planCardArray[1] === "undefined") {
         document.querySelector(".main-content .btn-download-a").style.display = "none"
     } else if (window.innerWidth < 1400 && typeof planCardArray[1] !== "undefined") {
         document.querySelector(".main-content .btn-download-a").style.display = "inline"
